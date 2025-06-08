@@ -16,18 +16,18 @@ const About = () => {
         opportunities. When I’m not coding, I explore music and share my
         inspirations through my YouTube series, Introducing Songs.
       </p>
-      <ul class="skills-list">
-        <li class="skill-item">
+      <ul className="skills-list">
+        <li className="skill-item">
           <strong>Frontend</strong>: JavaScript, React, TypeScript, HTML,
           CSS/SCSS, UI/UX, Accessibility
         </li>
-        <li class="skill-item">
+        <li className="skill-item">
           <strong>Backend (Collaboration)</strong>: Node.js
         </li>
-        <li class="skill-item">
+        <li className="skill-item">
           <strong>Tools</strong>: VIM, TMUX, Git, Chrome DevTools
         </li>
-        <li class="skill-item">
+        <li className="skill-item">
           <strong>Learning</strong>: Data Structures, Algorithms, System Design
         </li>
       </ul>
