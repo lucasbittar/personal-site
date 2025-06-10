@@ -13,7 +13,7 @@ const projects = [
       },
       {
         name: "Live Demo",
-        url: "https://lucasbittar.rocks/projects/weatherapp",
+        url: "https://lucasbittar.dev/projects/weatherapp",
       },
     ],
   },
@@ -29,7 +29,7 @@ const projects = [
       },
       {
         name: "Live Demo",
-        url: "https://lucasbittar.rocks/projects/myscrobble",
+        url: "https://lucasbittar.dev/projects/myscrobble",
       },
     ],
   },

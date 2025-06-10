@@ -17,6 +17,8 @@
 body {
   background-color: var(--background);
   font-family: var(--font);
+  border-right: 4px solid var(--accent);
+  border-top: 4px solid var(--accent);
 }
 
 ul,
@@ -45,7 +47,8 @@ h5 {
 }
 
 h1 {
-  text-shadow: 1px 1px var(--accent);
+  text-shadow: 2px 2px var(--accent);
+  font-size: 64px;
 }
 
 p {
@@ -188,7 +191,8 @@ p {
   }
 
   h1 {
-    font-size: 26px;
+    font-size: 24px;
+    text-shadow: 1px 1px var(--accent);
   }
 
   .section {
