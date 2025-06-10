@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import GA4 from "react-ga4";
 
 import Header from "./components/Header";
 import About from "./components/About";
@@ -8,6 +9,9 @@ import Projects from "./components/Projects";
 import Social from "./components/Social";
 
 import "../src/css/styles.css";
+
+const MEASUREMENT_ID = "G-C0B279PWTL";
+GA4.initialize(MEASUREMENT_ID);
 
 const App = () => {
   return (

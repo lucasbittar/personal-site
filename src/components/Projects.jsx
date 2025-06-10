@@ -1,4 +1,5 @@
 import React from "react";
+import GA4 from 'react-ga4';
 
 const projects = [
   {
@@ -48,6 +49,15 @@ const projects = [
 ];
 
 const Projects = () => {
+
+  const handleProjectClick = (e) => {
+    GA4.event({
+      category: 'Projects',
+      action: 'Click',
+      label: `URL: ${e.target.href}`,
+    });
+  }
+
   return (
     <div className="section">
       <h2>Projects</h2>
@@ -60,6 +70,7 @@ const Projects = () => {
                 {project.links.map((link, index) => (
                   <span key={index}>
                     <a
+                      onClick={handleProjectClick}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
