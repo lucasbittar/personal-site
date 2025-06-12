@@ -25,6 +25,9 @@ const About = () => {
           <strong>Backend (Collaboration)</strong>: Node.js
         </li>
         <li className="skill-item">
+          <strong>Mobile</strong>: ReactNative
+        </li>
+        <li className="skill-item">
           <strong>Tools</strong>: VIM, TMUX, Git, Chrome DevTools
         </li>
         <li className="skill-item">
