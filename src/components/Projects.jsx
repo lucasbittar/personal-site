@@ -38,7 +38,7 @@ const projects = [
     id: 3,
     title: "FastFeet",
     description:
-      "A web application for a fictitious logistics company, built with React and JavaScript. Enables administrators to manage orders, delivery personnel, and recipients through a responsive dashboard, with a focus on intuitive UI/UX and performance optimization.",
+      "A full-blown application including frontend, backend and mobile app for a fictitious logistics company, built with React, Node.JS and ReactNative. Enables administrators to manage orders, delivery personnel, and recipients through a responsive dashboard, with a focus on intuitive UI/UX and performance optimization.",
     links: [
       {
         name: "GitHub",
