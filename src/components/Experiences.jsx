@@ -2,7 +2,24 @@ import React from "react";
 
 const experiences = [
   {
-    id: 1,
+    id: "guardian-service",
+    title: "Senior Frontend Developer",
+    company: "Guardian Service (via Toptal)",
+    period: "Jul 2025 – present",
+    startDate: "2025-07-01",
+    endDate: "present",
+    responsibilities: [
+      "Rebuilt their previous multi-step form from the ground up using React and Next.js.",
+      "Improved the user interface using Tailwind and user flow while significantly improving speed and responsiveness.",
+      "Implemented backend to upload files with signed URLs to a Google Cloud bucket.",
+      "Implemented third-party API integrations including Calendly and Canopy.",
+      "Ensured seamless integration with the client’s CRM and marketing stack, including support for webhooks, Google Tag Manager, and partial data capture (for abandoned forms).",
+      "Deployed the application on Google Cloud Platform (GCP) under a designated subdomain.",
+      "Ensured full testing, validation, and readiness for production use."
+    ],
+  },
+  {
+    id: "gartner",
     title: "Senior Frontend Developer",
     company: "Gartner (via Toptal)",
     period: "Dec 2023 – Mar 2025",
@@ -14,7 +31,7 @@ const experiences = [
     ],
   },
   {
-    id: 2,
+    id: "sensentia",
     title: "Senior Frontend Developer",
     company: "Sensentia (via Toptal)",
     period: "Nov 2023 – Sep 2024",
@@ -25,7 +42,7 @@ const experiences = [
     ],
   },
   {
-    id: 3,
+    id: "zobrist",
     title: "Senior Frontend Developer",
     company: "Zobrist (via Toptal)",
     period: "Aug 2020 – Aug 2023",
@@ -37,7 +54,7 @@ const experiences = [
     ],
   },
   {
-    id: 4,
+    id: "bva",
     title: "Senior Frontend Developer",
     company: "BVA (via Toptal)",
     period: "Feb 2019 – Dec 2019",
@@ -49,7 +66,7 @@ const experiences = [
     ],
   },
   {
-    id: 5,
+    id: "movile",
     title: "Front-End Developer",
     company: "Movile",
     period: "Jul 2015 – Jun 2016",
@@ -60,7 +77,7 @@ const experiences = [
     ],
   },
   {
-    id: 6,
+    id: "solvian",
     title: "Front-End Developer",
     company: "Solvian",
     period: "Oct 2014 – Jul 2015",
