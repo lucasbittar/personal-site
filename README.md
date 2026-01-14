@@ -2,7 +2,7 @@
 
 A modern, minimalist portfolio website showcasing my work as a Senior Software Engineer specializing in Frontend development.
 
-**Live Site:** [lucasbittar.rocks](https://lucasbittar.rocks)
+**Live Site:** [lucasbittar.rocks](https://lucasbittar.rocks) [lucasbittar.dev](https://lucasbittar.dev)
 
 ## Tech Stack
 
@@ -90,4 +90,4 @@ Personal project - All rights reserved.
 
 ---
 
-Built with React + Vite | Deployed at lucasbittar.rocks / lucasbittar.dev
+Built with React + Vite | Deployed at [lucasbittar.rocks](https://lucasbittar.rocks) [lucasbittar.dev](https://lucasbittar.dev)
