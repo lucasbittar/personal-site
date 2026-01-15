@@ -1,38 +1,47 @@
 import React from "react";
 
 const About = () => {
+  const skills = [
+    {
+      category: "Frontend",
+      items: "JavaScript, React, TypeScript, HTML, CSS/SCSS, UI/UX, Accessibility",
+    },
+    {
+      category: "Backend",
+      items: "Node.js",
+    },
+    {
+      category: "Mobile",
+      items: "React Native",
+    },
+    {
+      category: "Tools",
+      items: "VIM, TMUX, Git, Chrome DevTools",
+    },
+    {
+      category: "Learning",
+      items: "Data Structures, Algorithms, System Design",
+    },
+  ];
+
   return (
     <div className="section">
-      <h2>About me</h2>
-      <p>
-        I’m Lucas Bittar Magnani, a frontend developer with 15 years of
+      <h2>About</h2>
+      <p className="about-intro">
+        I'm Lucas Bittar Magnani, a frontend developer with 15 years of
         experience creating impactful web solutions, including a decade as a
         Toptal talent working with global leaders like Gartner, BVA, and
-        Zobrist. Specializing in JavaScript, React, and modern UI/UX design,
-        I’ve architected scalable applications for data-driven platforms and
-        e-commerce giants like The North Face and VANS. Currently, I’m
-        sharpening my Computer Science fundamentals — Data Structures,
-        Algorithms, and System Design — to elevate my skills for FAANG-level
-        opportunities. When I’m not coding, I explore music and share my
-        inspirations through my YouTube series, Introducing Songs.
+        Zobrist. I've architected scalable applications for data-driven
+        platforms and e-commerce giants like The North Face and VANS.
       </p>
+      <h5>Skills & Expertise</h5>
       <ul className="skills-list">
-        <li className="skill-item">
-          <strong>Frontend</strong>: JavaScript, React, TypeScript, HTML,
-          CSS/SCSS, UI/UX, Accessibility
-        </li>
-        <li className="skill-item">
-          <strong>Backend (Collaboration)</strong>: Node.js
-        </li>
-        <li className="skill-item">
-          <strong>Mobile</strong>: React Native
-        </li>
-        <li className="skill-item">
-          <strong>Tools</strong>: VIM, TMUX, Git, Chrome DevTools
-        </li>
-        <li className="skill-item">
-          <strong>Learning</strong>: Data Structures, Algorithms, System Design
-        </li>
+        {skills.map((skill, index) => (
+          <li className="skill-item" key={index}>
+            <strong>{skill.category}</strong>
+            <span>{skill.items}</span>
+          </li>
+        ))}
       </ul>
     </div>
   );

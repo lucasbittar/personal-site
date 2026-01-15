@@ -62,27 +62,26 @@ const Projects = () => {
     <div className="section">
       <h2>Projects</h2>
       <ul className="projects-list">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <li className="project-item" key={project.id}>
-            <div className="project-header">
-              <strong>{project.title}</strong>
-              <span>
-                {project.links.map((link, index) => (
-                  <span key={index}>
-                    <a
-                      onClick={handleProjectClick}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.name}
-                    </a>
-                    {index < project.links.length - 1 && " | "}
-                  </span>
+            <div className="project-number">0{index + 1}</div>
+            <div className="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-links">
+                {project.links.map((link, linkIndex) => (
+                  <a
+                    key={linkIndex}
+                    onClick={handleProjectClick}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.name}
+                  </a>
                 ))}
-              </span>
+              </div>
             </div>
-            <p>{project.description}</p>
           </li>
         ))}
       </ul>
