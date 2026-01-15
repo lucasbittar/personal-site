@@ -65,24 +65,25 @@ const Projects = () => {
         {projects.map((project) => (
           <li className="project-item" key={project.id}>
             <div className="project-header">
-              <strong>{project.title}</strong>
-              <span>
-                {project.links.map((link, index) => (
-                  <span key={index}>
-                    <a
-                      onClick={handleProjectClick}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.name}
-                    </a>
-                    {index < project.links.length - 1 && " | "}
-                  </span>
-                ))}
-              </span>
+              <h3>{project.title}</h3>
+              <span className="project-year">2024</span>
             </div>
-            <p>{project.description}</p>
+            <div className="project-details">
+              <p>{project.description}</p>
+              <div className="project-links">
+                {project.links.map((link, linkIndex) => (
+                  <a
+                    key={linkIndex}
+                    onClick={handleProjectClick}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </li>
         ))}
       </ul>

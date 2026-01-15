@@ -2,9 +2,12 @@ import React from "react";
 
 const Social = () => {
   return (
-    <div className="section">
-      <h2>Contact</h2>
-      <p>Let’s create something impactful together! Connect with me at:</p>
+    <div className="section social-section">
+      <h2>Let's Connect</h2>
+      <p>
+        Ready to collaborate on something impactful? I'm always open to
+        discussing new opportunities and innovative projects.
+      </p>
       <div className="contact">
         <a href="mailto:lucasbittarmagnani@gmail.com" target="_blank">
           <span className="sr-only">Email</span>
