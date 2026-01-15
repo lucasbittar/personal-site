@@ -5,9 +5,9 @@ const experiences = [
     id: "guardian-service",
     title: "Senior Frontend Developer",
     company: "Guardian Service (via Toptal)",
-    period: "Jul 2025 – present",
+    period: "Jul 2025 – Ago 2025",
     startDate: "2025-07-01",
-    endDate: "present",
+    endDate: "2025-08-01",
     responsibilities: [
       "Rebuilt their previous multi-step form from the ground up using React and Next.js.",
       "Improved the user interface using Tailwind and user flow while significantly improving speed and responsiveness.",
@@ -115,22 +115,22 @@ const Experience = () => {
         {experiences.map((experience) => (
           <li className="experience-item" key={experience.id}>
             <div className="experience-header">
-              <h3>
-                {experience.title} @ <em>{experience.company}</em>
-              </h3>
-              <p className="experience-duration">
+              <div className="experience-title">
+                <h3>{experience.title}</h3>
+                <h4>{experience.company}</h4>
+              </div>
+              <div className="experience-duration">
                 {experience.period}
                 <em>
-                  ({calculateDuration(experience.startDate, experience.endDate)}
-                  )
+                  {calculateDuration(experience.startDate, experience.endDate)}
                 </em>
-              </p>
+              </div>
             </div>
-            {experience.responsibilities.map((responsibility, index) => (
-              <p className="experience-responsibilities" key={index}>
-                - {responsibility}
-              </p>
-            ))}
+            <ul className="experience-responsibilities">
+              {experience.responsibilities.map((responsibility, index) => (
+                <li key={index}>{responsibility}</li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
