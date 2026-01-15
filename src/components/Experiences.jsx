@@ -2,6 +2,23 @@ import React from "react";
 
 const experiences = [
   {
+    id: "index-risk",
+    title: "Senior Frontend Engineer",
+    company: "Index Risk (via Toptal)",
+    period: "Jan 2026 – present",
+    startDate: "2026-01-05",
+    endDate: "present",
+    responsibilities: [
+      "Building from scratch a proprietary internal SaaS dashboard for a property insurance MGU platform using Vite, TypeScript, and React.",
+      "Architecting the frontend to automate the full insurance lifecycle—from submission ingestion through quoting, binding, and reporting.",
+      "Implementing type-safe API integration with Zod and Orval for seamless communication with backend services.",
+      "Developing authentication and authorization flows using Better Auth to support multiple user roles (brokers, underwriters, capacity partners).",
+      "Creating reusable UI components with Shadcn and Tailwind CSS to ensure consistency across the platform.",
+      "Leveraging TanStack Query for efficient data fetching, caching, and real-time synchronization of insurance transactions.",
+      "Designing intuitive workflows that enable end-to-end insurance transactions and streamline underwriting and servicing processes."
+    ],
+  },
+  {
     id: "guardian-service",
     title: "Senior Frontend Developer",
     company: "Guardian Service (via Toptal)",
@@ -13,7 +30,7 @@ const experiences = [
       "Improved the user interface using Tailwind and user flow while significantly improving speed and responsiveness.",
       "Implemented backend to upload files with signed URLs to a Google Cloud bucket.",
       "Implemented third-party API integrations including Calendly and Canopy.",
-      "Ensured seamless integration with the client’s CRM and marketing stack, including support for webhooks, Google Tag Manager, and partial data capture (for abandoned forms).",
+      "Ensured seamless integration with the client's CRM and marketing stack, including support for webhooks, Google Tag Manager, and partial data capture (for abandoned forms).",
       "Deployed the application on Google Cloud Platform (GCP) under a designated subdomain.",
       "Ensured full testing, validation, and readiness for production use."
     ],
