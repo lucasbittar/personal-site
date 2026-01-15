@@ -1,4 +1,5 @@
 import React from "react";
+import ToptalBadge from "./ToptalBadge";
 
 const About = () => {
   const skills = [
@@ -34,6 +35,7 @@ const About = () => {
         Zobrist. I've architected scalable applications for data-driven
         platforms and e-commerce giants like The North Face and VANS.
       </p>
+      <ToptalBadge />
       <h5>Skills & Expertise</h5>
       <ul className="skills-list">
         {skills.map((skill, index) => (
