@@ -1,6 +1,13 @@
 import React from "react";
 
 const Header = () => {
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <header>
       <div className="header-container">
@@ -18,6 +25,12 @@ const Header = () => {
             UI/UX design. Building intuitive, high-performance web experiences
             with 15 years of expertise.
           </h2>
+        </div>
+      </div>
+      <div className="scroll-indicator" onClick={scrollToContent}>
+        <span className="scroll-indicator-text">Scroll</span>
+        <div className="scroll-arrow-container">
+          <div className="scroll-arrow"></div>
         </div>
       </div>
     </header>

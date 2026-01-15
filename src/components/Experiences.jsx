@@ -5,9 +5,9 @@ const experiences = [
     id: "guardian-service",
     title: "Senior Frontend Developer",
     company: "Guardian Service (via Toptal)",
-    period: "Jul 2025 – present",
+    period: "Jul 2025 – Ago 2025",
     startDate: "2025-07-01",
-    endDate: "present",
+    endDate: "2025-08-01",
     responsibilities: [
       "Rebuilt their previous multi-step form from the ground up using React and Next.js.",
       "Improved the user interface using Tailwind and user flow while significantly improving speed and responsiveness.",
