@@ -4,13 +4,21 @@ const Header = () => {
   return (
     <header>
       <div className="header-container">
-        <h1>Hi! My name is Lucas.</h1>
-        <h2>
-          I’m a seasoned frontend developer with a passion for building
-          intuitive, high-performance web experiences using JavaScript and
-          React. Dive into my journey and see how I blend cutting-edge UI/UX
-          expertise with a knack for solving complex challenges.
-        </h2>
+        <div className="header-name">
+          <h1>
+            LUCAS
+            <br />
+            BITTAR
+          </h1>
+        </div>
+        <div className="header-divider"></div>
+        <div className="header-description">
+          <h2>
+            Senior Frontend Engineer specializing in JavaScript, React, and modern
+            UI/UX design. Building intuitive, high-performance web experiences
+            with 15 years of expertise.
+          </h2>
+        </div>
       </div>
     </header>
   );

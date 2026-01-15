@@ -61,31 +61,33 @@ const Projects = () => {
   return (
     <div className="section">
       <h2>Projects</h2>
-      <ul className="projects-list">
-        {projects.map((project) => (
-          <li className="project-item" key={project.id}>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div
+            className="project-item"
+            key={project.id}
+            data-number={`0${index + 1}`}
+          >
             <div className="project-header">
-              <strong>{project.title}</strong>
-              <span>
-                {project.links.map((link, index) => (
-                  <span key={index}>
-                    <a
-                      onClick={handleProjectClick}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.name}
-                    </a>
-                    {index < project.links.length - 1 && " | "}
-                  </span>
-                ))}
-              </span>
+              <h3>{project.title}</h3>
             </div>
             <p>{project.description}</p>
-          </li>
+            <div className="project-links">
+              {project.links.map((link, linkIndex) => (
+                <a
+                  key={linkIndex}
+                  onClick={handleProjectClick}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
