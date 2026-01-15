@@ -38,7 +38,20 @@ const ToptalBadge = () => {
           }
           #toptal-badge {
             font-family: proxima-nova, Arial, sans-serif;
-            margin: 60px 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            transform: scale(0.7);
+            transform-origin: top right;
+          }
+
+          @media screen and (max-width: 768px) {
+            #toptal-badge {
+              transform: scale(0.5);
+              top: 10px;
+              right: 10px;
+            }
           }
           .toptal-b {
             margin: 0;

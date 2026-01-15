@@ -7,6 +7,7 @@ import About from "./components/About";
 import Experiences from "./components/Experiences";
 import Projects from "./components/Projects";
 import Social from "./components/Social";
+import ToptalBadge from "./components/ToptalBadge";
 
 import "../src/css/styles.css";
 
@@ -15,13 +16,16 @@ GA4.initialize(MEASUREMENT_ID);
 
 const App = () => {
   return (
-    <div className="wrapper">
-      <Header />
-      <About />
-      <Experiences />
-      <Projects />
-      <Social />
-    </div>
+    <>
+      <ToptalBadge />
+      <div className="wrapper">
+        <Header />
+        <About />
+        <Experiences />
+        <Projects />
+        <Social />
+      </div>
+    </>
   );
 };
 
