@@ -115,22 +115,22 @@ const Experience = () => {
         {experiences.map((experience) => (
           <li className="experience-item" key={experience.id}>
             <div className="experience-header">
-              <h3>
-                {experience.title} @ <em>{experience.company}</em>
-              </h3>
-              <p className="experience-duration">
+              <div className="experience-title">
+                <h3>{experience.title}</h3>
+                <h4>{experience.company}</h4>
+              </div>
+              <div className="experience-duration">
                 {experience.period}
                 <em>
-                  ({calculateDuration(experience.startDate, experience.endDate)}
-                  )
+                  {calculateDuration(experience.startDate, experience.endDate)}
                 </em>
-              </p>
+              </div>
             </div>
-            {experience.responsibilities.map((responsibility, index) => (
-              <p className="experience-responsibilities" key={index}>
-                - {responsibility}
-              </p>
-            ))}
+            <ul className="experience-responsibilities">
+              {experience.responsibilities.map((responsibility, index) => (
+                <li key={index}>{responsibility}</li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
