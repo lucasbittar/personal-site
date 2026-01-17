@@ -5,33 +5,57 @@ const Experience = () => {
   const { experiences } = content;
 
   return (
-    <div className="section">
-      <h2>Experience</h2>
-      <p className="section-intro">
-        A decade of building products through Toptal's network, collaborating with global companies.
-      </p>
-      <div className="experience-grid">
-        {experiences.map((experience) => (
-          <div className="experience-card" key={experience.id}>
-            <div className="experience-card-header">
-              <div>
-                <h3>{experience.title}</h3>
-                <h4>{experience.company}</h4>
+    <section className="terminal-section">
+      <div className="terminal-section-window">
+        <div className="terminal-section-header">
+          <span className="terminal-section-title">
+            <span className="terminal-prompt">$</span> git log --oneline ~/career/
+          </span>
+          <span className="terminal-section-status">
+            {experiences.length} commits
+          </span>
+        </div>
+
+        <div className="terminal-section-content">
+          <div className="terminal-comment"># Professional experience via Toptal network</div>
+
+          <div className="terminal-git-log">
+            {experiences.map((experience, index) => (
+              <div key={experience.id} className="terminal-commit">
+                <div className="terminal-commit-header">
+                  <span className="terminal-commit-hash">
+                    {experience.id.substring(0, 7)}
+                  </span>
+                  <span className="terminal-commit-date">{experience.period}</span>
+                  {index === 0 && (
+                    <span className="terminal-commit-head">HEAD</span>
+                  )}
+                </div>
+                <div className="terminal-commit-message">
+                  <span className="terminal-commit-title">{experience.title}</span>
+                  <span className="terminal-commit-company">@ {experience.company}</span>
+                </div>
+                <div className="terminal-commit-body">
+                  {experience.description}
+                </div>
+                <div className="terminal-commit-tags">
+                  {experience.tech.map((tech, i) => (
+                    <span key={i} className="terminal-tech-tag">
+                      [{tech}]
+                    </span>
+                  ))}
+                </div>
               </div>
-              <span className="experience-period">{experience.period}</span>
-            </div>
-            <p className="experience-description">{experience.description}</p>
-            <div className="experience-tech">
-              {experience.tech.map((tech, index) => (
-                <span key={index} className="tech-tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
+            ))}
           </div>
-        ))}
+
+          <div className="terminal-prompt-line">
+            <span className="terminal-prompt">$</span>
+            <span className="terminal-cursor">█</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
