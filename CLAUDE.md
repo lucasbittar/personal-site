@@ -1,333 +1,257 @@
 ## Project Overview
 
-This is a personal portfolio website for Lucas Bittar, a Senior Software Engineer specializing in Frontend development. The site showcases professional experience, projects, and technical skills through a modern, minimalist dark-themed interface.
+This is a personal website for Lucas Bittar, a Senior Software Engineer specializing in Frontend development. The site goes beyond a traditional portfolio to showcase who Lucas is as a person - his writing, music interests, reading habits, and current focuses - while maintaining professional credibility.
 
+**Vision:** "Someone interesting you'd want to grab coffee with"
 **Domain:** lucasbittar.rocks / lucasbittar.dev
+**Hosting:** Vercel (with serverless functions)
 **Analytics ID:** G-C0B279PWTL (Google Analytics 4)
 
 ## Technology Stack
 
 ### Core
-- **Framework:** React 18.3.1 (functional components only)
+- **Framework:** React 18.3.1 (functional components)
 - **Language:** JavaScript (JSX syntax)
-- **Build Tool:** Vite 5.4.2 (fast development and optimized production builds)
+- **Build Tool:** Vite 5.4.2
+- **Hosting:** Vercel with serverless functions
 - **Node.js** runtime environment
 
-### Development Tools
-- **ESLint** 9.9.1 - Code quality and linting
-- **Prettier** 3.3.3 - Code formatting
-- **eslint-config-prettier** 9.1.0 - ESLint/Prettier integration
+### Features
+- **Theme Toggle:** Light/dark mode with localStorage persistence
+- **Scroll Animations:** Intersection Observer API
+- **Spotify Integration:** Vercel serverless function for OAuth
+- **Content Management:** Single JSON file for all dynamic content
 
 ### External Dependencies
 - **react-ga4** 2.1.0 - Google Analytics 4 tracking
 - **Font Awesome** (CDN) - Icon library
 - **Google Fonts** (CDN) - Ubuntu font family (300, 400, 700 weights)
+- **Spotify Web API** - Now playing / recently played
 
 ## Project Structure
 
 ```
 /Users/lucasbittar/Code/personal/
+├── api/
+│   └── spotify.js              # Vercel serverless function for Spotify OAuth
+├── scripts/
+│   └── get-spotify-token.js    # One-time setup script for Spotify refresh token
 ├── src/
-│   ├── App.jsx              # Main application entry - orchestrates all sections
-│   ├── components/          # React components directory
-│   │   ├── Header.jsx       # Hero section with introduction
-│   │   ├── About.jsx        # Bio and skills section
-│   │   ├── Experiences.jsx  # Professional experience timeline
-│   │   ├── Projects.jsx     # Portfolio projects showcase
-│   │   └── Social.jsx       # Contact and social media links
+│   ├── App.jsx                 # Main app entry with scroll animation logic
+│   ├── data/
+│   │   └── content.json        # ALL SITE CONTENT - edit this to update
+│   ├── components/
+│   │   ├── Header.jsx          # Hero section with conversational intro
+│   │   ├── ThemeToggle.jsx     # Light/dark mode toggle button
+│   │   ├── Now.jsx             # Current focuses + Spotify integration
+│   │   ├── Writing.jsx         # Substack posts showcase
+│   │   ├── Listening.jsx       # YouTube channel embed
+│   │   ├── Reading.jsx         # Book list with status
+│   │   ├── About.jsx           # Work section with Toptal badge + skills
+│   │   ├── Experiences.jsx     # Professional experience cards with tech tags
+│   │   ├── Projects.jsx        # Featured side projects
+│   │   └── Social.jsx          # Contact and social links
 │   └── css/
-│       └── styles.css       # Global styling with CSS custom properties
-├── index.html               # HTML entry point with root div
-├── vite.config.js           # Vite configuration (minimal)
-├── eslint.config.mjs        # ESLint configuration
-├── package.json             # Project manifest
-└── .gitignore              # Git ignore patterns
+│       └── styles.css          # Global styles with light/dark theme variables
+├── index.html
+├── vite.config.js
+├── eslint.config.mjs
+├── package.json
+└── .gitignore
 ```
 
-## Architecture Patterns
+## Site Sections (in order)
 
-### Component Design
-- **All functional components** - No class components
-- **Stateless/Presentational** - No useState or useEffect hooks
-- **Data-driven rendering** - Arrays of objects mapped to JSX
-- **Single responsibility** - Each component handles one major section
-- **Flat hierarchy** - No nested component folders
+1. **Header** - Name + conversational intro from content.json
+2. **Now** - Current focuses: working on, reading, listening (Spotify), thinking about
+3. **Writing** - Featured Substack posts with links
+4. **Listening** - YouTube channel with embedded video
+5. **Reading** - Book list organized by status (reading, finished, favorite)
+6. **Work (About)** - Professional summary, Toptal badge, skills grid
+7. **Experience** - Card grid with company, description, tech tags
+8. **Projects** - 2 featured side projects
+9. **Connect (Social)** - Social media links
 
-### Data Management Pattern
-```javascript
-// Projects and experiences are defined as JavaScript arrays within components
-const projects = [
-  { id: 1, title: "...", description: "...", links: {...} },
-  // ...
-];
+## Content Management
 
-// Rendered using .map()
-projects.map((project) => (
-  <li key={project.id}>
-    {/* JSX */}
-  </li>
-))
-```
+**All dynamic content lives in `src/data/content.json`**
 
-### Key Features by Component
-
-**Header.jsx**
-- Hero section with main heading and subtitle
-- Professional introduction text
-- Text shadow effect on heading
-
-**About.jsx**
-- Professional bio (15 years experience)
-- Structured skills list by category:
-  - Frontend, Backend, Mobile, Tools, Learning
-- Easy to update by modifying the skills array
-
-**Experiences.jsx**
-- Timeline of 7 professional positions
-- **Auto-calculated durations** via `calculateDuration(startDate, endDate)` function
-- Each position includes: title, company, period, startDate, endDate, responsibilities
-- Current position marked with "(Present)" label
-- Toptal contractor positions indicated
-
-**Projects.jsx**
-- 3 featured projects with descriptions and links
-- **GA4 event tracking** on project link clicks
-  - Category: "Projects", Action: "Click", Label: URL
-- Projects: Weather App, MyScrobble, FastFeet
-- Links to GitHub (lucasbittar.dev) and live demos
-
-**Social.jsx**
-- Contact call-to-action
-- Social links: Email, LinkedIn, X (Twitter), GitHub
-- **Accessibility:** `sr-only` class for screen reader text on icon links
-
-## Design System
-
-### CSS Custom Properties (in styles.css)
-```css
-:root {
-  --primary: #d0d0d0        /* Light gray - body text */
-  --secondary: #4a4a4a      /* Dark gray - secondary text/borders */
-  --accent: #9c479b         /* Purple - headings, links, accents */
-  --background: #020202     /* Near-black - background */
-  --white: #ffffff          /* Pure white */
-  --border: #ccc            /* Light gray - borders */
-  --font: "Ubuntu", sans-serif
+### Structure:
+```json
+{
+  "intro": "Conversational hero text...",
+  "now": {
+    "workingOn": "Current project description",
+    "reading": [
+      { "title": "Book Title", "author": "Author" }
+    ],
+    "listening": "Fallback text when Spotify unavailable",
+    "thinkingAbout": "Current intellectual interest"
+  },
+  "writing": [
+    { "id": 1, "title": "...", "excerpt": "...", "url": "...", "date": "YYYY-MM-DD" }
+  ],
+  "listening": {
+    "channelName": "...",
+    "channelUrl": "...",
+    "channelDescription": "...",
+    "featuredVideo": { "id": "youtube-id", "title": "..." }
+  },
+  "reading": [
+    { "id": 1, "title": "...", "author": "...", "status": "reading|finished|favorite", "thoughts": "..." }
+  ],
+  "experiences": [
+    { "id": "...", "title": "...", "company": "...", "period": "...", "description": "...", "tech": ["..."] }
+  ],
+  "social": {
+    "substack": "...", "youtube": "...", "email": "...", "linkedin": "...", "twitter": "...", "github": "..."
+  }
 }
 ```
 
-### Color Scheme
-- **Dark theme** with near-black background
-- **Purple accent color** (#9c479b) for visual hierarchy
-- High contrast for readability
-- Minimalist aesthetic
+## Design System
 
-### Responsive Design
-- **Mobile breakpoint:** 768px
-- Mobile-first approach with media queries
-- Adjusted font sizes, padding, borders for mobile
-- Full viewport height header on mobile devices
+### CSS Custom Properties
+
+**Dark Theme (default):**
+```css
+:root {
+  --primary: #d0d0d0;
+  --secondary: #4a4a4a;
+  --accent: #9c479b;
+  --background: #020202;
+  --white: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-hover-bg: rgba(156, 71, 155, 0.05);
+}
+```
+
+**Light Theme (.light-theme on body):**
+```css
+.light-theme {
+  --primary: #333333;
+  --secondary: #666666;
+  --accent: #9c479b;
+  --background: #f5f5f5;
+  --white: #1a1a1a;
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --card-hover-bg: rgba(156, 71, 155, 0.08);
+}
+```
 
 ### Key Design Elements
-- 4px purple border accent on body (top and right)
-- Text shadow on main h1 (2px in accent color)
-- 1px dotted section separators in accent color
-- 3px left border on project/experience items (2px on mobile)
-- Ubuntu font family throughout
+- Purple accent (#9c479b) maintained across both themes
+- Card-based layouts with hover effects
+- Tech tags as pills with hover color inversion
+- Scroll-triggered fade-in animations
+- Mobile breakpoint: 768px
+
+## Component Patterns
+
+### State Management
+- **ThemeToggle:** Uses useState + useEffect with localStorage
+- **Now (Spotify):** Uses useState + useEffect with fetch + setInterval
+- **All others:** Stateless, data-driven from content.json
+
+### Animation System
+```javascript
+// In App.jsx - Intersection Observer setup
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-in");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+```
+
+Sections get `.animate-section` class (opacity: 0, translateY: 40px) and `.animate-in` when visible.
+
+## Spotify Integration
+
+### Architecture
+- **Serverless function:** `api/spotify.js` handles OAuth token refresh
+- **Frontend:** `Now.jsx` fetches from `/api/spotify` every 30 seconds
+- **Fallback:** Shows `now.listening` from content.json if Spotify unavailable
+
+### Environment Variables (Vercel)
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `SPOTIFY_REFRESH_TOKEN`
+
+### Setup Script
+```bash
+SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx node scripts/get-spotify-token.js
+```
 
 ## Development Workflow
 
 ### Available Scripts
 ```bash
-npm run dev       # Start Vite dev server with HMR
+npm run dev       # Start Vite dev server (localhost:5173)
 npm run build     # Production build to dist/
-npm run preview   # Preview production build locally
+npm run preview   # Preview production build
 npm run lint      # Run ESLint
-npm run format    # Format code with Prettier
+npm run format    # Format with Prettier
 ```
 
-### Build Configuration
-- **Output directory:** `dist/`
-- Vite handles optimization, code splitting, asset bundling
-- Fast Refresh enabled for instant component updates
-- Minimal configuration (6-line vite.config.js)
+### Deployment
+- Push to `master` branch triggers Vercel deployment
+- Environment variables configured in Vercel dashboard
 
-### Code Quality Standards
-- ESLint with JavaScript recommended config
-- Prettier for consistent formatting
-- Run linting before commits
-- Simple, readable JSX patterns preferred
+## Common Modifications
 
-## Common Modification Patterns
+### Update any content
+Edit `src/data/content.json` - changes reflect immediately on rebuild.
 
-### Adding a New Experience
-1. Open `src/components/Experiences.jsx`
-2. Add new object to `experiences` array:
-```javascript
+### Add new experience
+Add object to `experiences` array in content.json:
+```json
 {
-  id: 8, // Increment ID
-  title: "Position Title",
-  company: "Company Name",
-  toptal: false, // Set true if Toptal contract
-  period: "Start - End",
-  startDate: "2026-01-01",
-  endDate: "present", // or "YYYY-MM-DD"
-  responsibilities: [
-    "Responsibility 1",
-    "Responsibility 2",
-  ]
+  "id": "unique-id",
+  "title": "Job Title",
+  "company": "Company Name",
+  "period": "Jan 2026 – Present",
+  "description": "One impactful sentence about the role.",
+  "tech": ["React", "TypeScript", "etc"]
 }
 ```
-3. Duration will be auto-calculated
 
-### Adding a New Project
-1. Open `src/components/Projects.jsx`
-2. Add new object to `projects` array:
-```javascript
-{
-  id: 4, // Increment ID
-  title: "Project Name",
-  description: "Project description text",
-  links: {
-    github: "https://github.com/...",
-    live: "https://..." // optional
-  }
-}
-```
-3. GA4 tracking is automatic on clicks
+### Add new book
+Add to `reading` array in content.json with status: "reading", "finished", or "favorite"
 
-### Updating Skills
-1. Open `src/components/About.jsx`
-2. Modify the `skills` array within categories:
-```javascript
-const skills = [
-  { category: "Category Name", items: ["Skill 1", "Skill 2"] },
-  // ...
-];
-```
-
-### Styling Changes
-1. **Theme colors:** Update CSS custom properties in `styles.css` `:root`
-2. **Component-specific:** Add/modify classes in `styles.css`
-3. **Mobile responsive:** Adjust media query at `@media (max-width: 768px)`
-
-## Performance Considerations
-
-- External scripts (Font Awesome, Google Fonts) loaded via CDN
-- Preconnect to Google Fonts for faster loading
-- React production build with Vite optimization
-- Google Analytics loaded and initialized in App.jsx
-- Minimal dependencies (only 3 production packages)
-
-## Accessibility Features
-
-- Semantic HTML structure (header, ul, li, a tags)
-- `sr-only` class for screen reader only text on icon links
-- High color contrast ratios for readability
-- Proper link attributes: `target="_blank"` with `rel="noopener noreferrer"`
-- Keyboard-navigable interface
-
-## Analytics Integration
-
-Google Analytics 4 is configured in `App.jsx`:
-```javascript
-ReactGA.initialize('G-C0B279PWTL');
-ReactGA.send({ hitType: "pageview", page: "/" });
-```
-
-Project link clicks are tracked:
-```javascript
-ReactGA.event({
-  category: "Projects",
-  action: "Click",
-  label: url,
-});
-```
-
-## Common Issues and Solutions
-
-### Issue: Component not rendering
-- Check that component is imported in App.jsx
-- Verify component is included in the render method
-
-### Issue: Styles not applying
-- Ensure styles.css is imported in App.jsx
-- Check CSS class names match exactly
-- Verify CSS custom properties are defined in :root
-
-### Issue: Build errors
-- Run `npm install` to ensure all dependencies are installed
-- Check for JSX syntax errors (proper closing tags, valid attribute names)
-- Ensure all imports use correct file paths
-
-### Issue: Analytics not tracking
-- Verify GA4 measurement ID is correct in App.jsx
-- Check browser console for GA errors
-- Ensure react-ga4 is installed: `npm install react-ga4`
+### Change theme colors
+Update CSS custom properties in `styles.css` `:root` and `.light-theme`
 
 ## File Modification Guidelines
 
-### When editing components:
-1. **Always read the file first** before making changes
-2. **Maintain data-driven patterns** - Keep arrays of objects for projects/experiences
-3. **Preserve the functional component pattern** - No class components
-4. **Keep components stateless** - No unnecessary hooks
-5. **Follow existing naming conventions** - camelCase for variables, PascalCase for components
-6. **Test responsive design** after changes - Check both desktop and mobile views
-
-### When editing styles:
-1. **Use CSS custom properties** for theme values
-2. **Maintain mobile-first approach** - Base styles, then media queries
-3. **Preserve the dark theme aesthetic** - High contrast, purple accents
-4. **Test color contrast** for accessibility
-5. **Keep selectors simple** - Avoid deep nesting
+1. **Content changes:** Edit `content.json` only
+2. **Styling:** Use CSS custom properties, maintain both themes
+3. **Components:** Keep stateless unless state is necessary
+4. **New sections:** Add to App.jsx, create component, add styles
+5. **Always test:** Both themes, mobile responsiveness, scroll animations
 
 ## Git Workflow
 
-- Main branch: master (not main)
-- Clean working directory preferred before commits
-- Git ignored: node_modules, dist/, .env, .DS_Store, coverage/, .claude, references/
-
-## Project Context for AI Assistants
-
-### What this project is:
-- Personal portfolio for a senior frontend engineer
-- Showcase of professional experience and projects
-- Modern, minimalist design reflecting technical expertise
-
-### What this project is NOT:
-- Not a blog or CMS
-- Not a full-stack application with backend
-- Not a template or theme for others
-- Not a commercial product
-
-### Design Philosophy:
-- **Simplicity over complexity** - Minimal dependencies, straightforward patterns
-- **Performance-focused** - Fast loads, optimized builds
-- **Maintainable** - Easy to update content, clear structure
-- **Professional** - Clean, modern aesthetic appropriate for senior engineer
-
-### When making changes:
-1. Respect the minimalist design philosophy
-2. Keep the dark theme with purple accents
-3. Maintain the data-driven component pattern
-4. Preserve accessibility features
-5. Test responsive design on mobile
-6. Don't over-engineer solutions
-7. Keep dependencies minimal
+- **Main branch:** master
+- **Deployment:** Automatic via Vercel on push to master
+- **Ignored:** node_modules, dist/, .env, .DS_Store, .claude
 
 ## Quick Reference
 
-**Dev server:** `npm run dev` (runs on http://localhost:5173 by default)
-**Production build:** `npm run build`
-**Main entry:** `src/App.jsx`
-**Styles:** `src/css/styles.css`
-**Color accent:** `#9c479b` (purple)
-**Font:** Ubuntu (Google Fonts)
-**Breakpoint:** 768px
+| Item | Value |
+|------|-------|
+| Dev server | `npm run dev` → localhost:5173 |
+| Content file | `src/data/content.json` |
+| Styles | `src/css/styles.css` |
+| Spotify API | `api/spotify.js` |
+| Accent color | `#9c479b` (purple) |
+| Font | Ubuntu (Google Fonts) |
+| Breakpoint | 768px |
 
 ---
 
-**Last Updated:** 2026-01-14
-**Version:** 1.0
+**Last Updated:** 2026-01-17
+**Version:** 2.0
 **Maintained by:** Lucas Bittar

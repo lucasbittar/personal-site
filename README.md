@@ -1,24 +1,30 @@
-# Personal Portfolio - Lucas Bittar
+# Lucas Bittar - Personal Site
 
-A modern, minimalist portfolio website showcasing my work as a Senior Software Engineer specializing in Frontend development.
+A personal website that goes beyond a traditional portfolio - showcasing who I am as a person while maintaining professional credibility.
 
-**Live Site:** [lucasbittar.rocks](https://lucasbittar.rocks) [lucasbittar.dev](https://lucasbittar.dev)
+**Live Site:** [lucasbittar.rocks](https://lucasbittar.rocks) | [lucasbittar.dev](https://lucasbittar.dev)
 
 ## Tech Stack
 
 - **React** 18.3.1 - UI component library
 - **Vite** 5.4.2 - Fast build tool with HMR
+- **Vercel** - Hosting with serverless functions
 - **JavaScript/JSX** - Modern ES6+ syntax
-- **CSS** - Custom properties for theming
+- **CSS** - Custom properties with light/dark theming
 - **Google Analytics 4** - User engagement tracking
+- **Spotify API** - Now playing integration
 
 ## Features
 
-- Clean, dark-themed design with purple accents
+- **Light/Dark theme toggle** with localStorage persistence
+- **Scroll animations** using Intersection Observer
+- **Spotify integration** - Shows currently playing or recently played track
+- **Content-driven** - All content managed via single JSON file
 - Responsive mobile-first layout
-- Professional experience timeline with auto-calculated durations
-- Project showcase with GitHub and live demo links
-- Skills organized by technology categories
+- Professional experience with tech tags
+- Writing showcase (Substack integration)
+- YouTube channel embed
+- Reading list section
 - Google Analytics event tracking
 - Accessible design with semantic HTML
 
@@ -36,53 +42,79 @@ npm run build
 
 # Preview production build
 npm run preview
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
 ```
 
 ## Project Structure
 
 ```
 src/
-├── App.jsx              # Main application entry
-├── components/          # React components
-│   ├── Header.jsx       # Hero section
-│   ├── About.jsx        # Bio and skills
-│   ├── Experiences.jsx  # Work history
-│   ├── Projects.jsx     # Portfolio projects
-│   └── Social.jsx       # Contact links
+├── App.jsx                 # Main app with scroll animation logic
+├── data/
+│   └── content.json        # All site content (edit this to update)
+├── components/
+│   ├── Header.jsx          # Hero with conversational intro
+│   ├── ThemeToggle.jsx     # Light/dark mode switch
+│   ├── Now.jsx             # Current focuses + Spotify
+│   ├── Writing.jsx         # Substack posts
+│   ├── Listening.jsx       # YouTube channel
+│   ├── Reading.jsx         # Book list
+│   ├── About.jsx           # Work section with skills
+│   ├── Experiences.jsx     # Professional experience cards
+│   ├── Projects.jsx        # Featured projects
+│   └── Social.jsx          # Contact links
 └── css/
-    └── styles.css       # Global styles
+    └── styles.css          # Global styles with theme variables
+api/
+└── spotify.js              # Vercel serverless function for Spotify
+scripts/
+└── get-spotify-token.js    # One-time setup for Spotify auth
 ```
-
-## Development
-
-- Built with **Vite** for fast development experience
-- **ESLint** and **Prettier** for code quality
-- **Functional components** with data-driven rendering
-- **CSS custom properties** for easy theme customization
 
 ## Updating Content
 
-### Add Experience
-Edit `src/components/Experiences.jsx` and add to the `experiences` array.
+All content is managed in `src/data/content.json`:
 
-### Add Project
-Edit `src/components/Projects.jsx` and add to the `projects` array.
+- **intro** - Hero section text
+- **now** - Current focuses (working on, reading, listening, thinking about)
+- **writing** - Substack posts array
+- **listening** - YouTube channel info and featured video
+- **reading** - Book list with status and thoughts
+- **experiences** - Professional experience array
+- **social** - Social media links
 
-### Update Skills
-Edit `src/components/About.jsx` and modify the `skills` array.
+## Spotify Setup
+
+1. Create app at [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard)
+2. Add `http://127.0.0.1:3000/callback` as redirect URI
+3. Run: `SPOTIFY_CLIENT_ID=xxx SPOTIFY_CLIENT_SECRET=xxx node scripts/get-spotify-token.js`
+4. Add environment variables to Vercel:
+   - `SPOTIFY_CLIENT_ID`
+   - `SPOTIFY_CLIENT_SECRET`
+   - `SPOTIFY_REFRESH_TOKEN`
 
 ## Color Scheme
 
-- Background: `#020202` (near-black)
-- Primary text: `#d0d0d0` (light gray)
+### Dark Theme (default)
+- Background: `#020202`
+- Primary text: `#d0d0d0`
 - Accent: `#9c479b` (purple)
-- Font: Ubuntu (300, 400, 700)
+
+### Light Theme
+- Background: `#f5f5f5`
+- Primary text: `#333333`
+- Accent: `#9c479b` (purple)
+
+## Deployment
+
+Deployed on Vercel with automatic deployments from the `master` branch.
+
+```bash
+# Deploy preview
+vercel
+
+# Deploy production
+vercel --prod
+```
 
 ## License
 
@@ -90,4 +122,4 @@ Personal project - All rights reserved.
 
 ---
 
-Built with React + Vite | Deployed at [lucasbittar.rocks](https://lucasbittar.rocks) [lucasbittar.dev](https://lucasbittar.dev)
+Built with React + Vite | Deployed on Vercel

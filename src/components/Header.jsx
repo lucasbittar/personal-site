@@ -1,4 +1,6 @@
 import React from "react";
+import content from "../data/content.json";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const scrollToContent = () => {
@@ -10,6 +12,7 @@ const Header = () => {
 
   return (
     <header>
+      <ThemeToggle />
       <div className="header-container">
         <div className="header-name">
           <h1>
@@ -20,11 +23,7 @@ const Header = () => {
         </div>
         <div className="header-divider"></div>
         <div className="header-description">
-          <h2>
-            Senior Frontend Engineer specializing in JavaScript, React, and modern
-            UI/UX design. Building intuitive, high-performance web experiences
-            with 15 years of expertise.
-          </h2>
+          <p className="header-intro">{content.intro}</p>
         </div>
       </div>
       <div className="scroll-indicator" onClick={scrollToContent}>

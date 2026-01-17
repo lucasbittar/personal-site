@@ -25,15 +25,27 @@ const About = () => {
   ];
 
   return (
-    <div className="section">
-      <h2>About</h2>
-      <p className="about-intro">
-        I'm Lucas Bittar Magnani, a frontend developer with 15 years of
-        experience creating impactful web solutions, including a decade as a
-        Toptal talent working with global leaders like Gartner, BVA, and
-        Zobrist. I've architected scalable applications for data-driven
-        platforms and e-commerce giants like The North Face and VANS.
-      </p>
+    <div className="section about-section">
+      <h2>Work</h2>
+      <div className="about-content">
+        <p className="about-intro">
+          With 15 years of experience, I've built impactful web solutions for
+          global companies. For the past decade, I've worked as a Toptal talent,
+          collaborating with leaders like Gartner, BVA, and Zobrist. I've
+          architected scalable applications for data-driven platforms and
+          e-commerce giants including The North Face and VANS.
+        </p>
+        <div className="toptal-inline-badge">
+          <a
+            href="https://www.toptal.com/developers/resume/lucas-bittar-magnani#NW70m2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="toptal-badge-text">Top 3% on Toptal</span>
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
       <h5>Skills & Expertise</h5>
       <ul className="skills-list">
         {skills.map((skill, index) => (
