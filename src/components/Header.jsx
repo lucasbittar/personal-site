@@ -76,12 +76,6 @@ const Header = () => {
     <header className="terminal-hero">
       <ThemeToggle />
 
-      {/* Scanline overlay */}
-      <div className="terminal-scanlines" aria-hidden="true" />
-
-      {/* CRT screen glow */}
-      <div className="terminal-glow" aria-hidden="true" />
-
       <div className="terminal-container">
         {/* Terminal window */}
         <div className="terminal-window">

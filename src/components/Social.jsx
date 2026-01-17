@@ -65,7 +65,7 @@ const Social = () => {
           <div className="terminal-footer">
             <div className="terminal-footer-line">
               <span className="terminal-comment">
-                # Built with React • Styled with terminal aesthetics • Powered by curiosity
+                # Built with React • Powered by curiosity
               </span>
             </div>
             <div className="terminal-footer-line">

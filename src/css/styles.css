@@ -149,31 +149,251 @@ p {
   padding: 60px 80px;
 }
 
-/* Theme Toggle */
-.theme-toggle {
+/* ============================================
+   CRT THEME TOGGLE - Retro Power Panel
+   ============================================ */
+
+.crt-theme-toggle {
   position: fixed;
-  top: 24px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
   z-index: 1000;
-  background: var(--card-bg);
-  border: 1px solid var(--secondary);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--terminal-bg);
+  border: 2px solid var(--terminal-border);
+  border-radius: 6px;
+  padding: 0;
   cursor: pointer;
-  color: var(--accent);
-  font-size: 20px;
-  transition: all var(--transition-speed) ease;
+  font-family: var(--mono-font);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow:
+    0 0 0 1px rgba(74, 222, 128, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.theme-toggle:hover {
-  background: var(--card-hover-bg);
-  border-color: var(--accent);
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--glow-accent);
+.light-theme .crt-theme-toggle {
+  background: #f0f0f0;
+  border-color: #d0d0d0;
+  box-shadow:
+    0 0 0 1px rgba(217, 119, 6, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.crt-theme-toggle:hover {
+  border-color: var(--terminal-green);
+  box-shadow:
+    0 0 0 1px rgba(74, 222, 128, 0.3),
+    0 0 20px rgba(74, 222, 128, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.light-theme .crt-theme-toggle:hover {
+  border-color: var(--terminal-amber);
+  box-shadow:
+    0 0 0 1px rgba(217, 119, 6, 0.3),
+    0 0 20px rgba(217, 119, 6, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Scanlines on the toggle */
+.crt-toggle-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.1) 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+.light-theme .crt-toggle-scanlines {
+  opacity: 0.2;
+}
+
+/* Panel content */
+.crt-toggle-panel {
+  position: relative;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1;
+}
+
+/* Header with PWR label and LED */
+.crt-toggle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.crt-toggle-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.light-theme .crt-toggle-label {
+  color: #888;
+}
+
+/* LED indicator */
+.crt-toggle-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.crt-led-green {
+  background: var(--terminal-green);
+  box-shadow:
+    0 0 4px var(--terminal-green),
+    0 0 8px var(--terminal-green),
+    0 0 12px rgba(74, 222, 128, 0.5);
+  animation: ledPulse 2s ease-in-out infinite;
+}
+
+.crt-led-amber {
+  background: var(--terminal-amber);
+  box-shadow:
+    0 0 4px var(--terminal-amber),
+    0 0 8px var(--terminal-amber),
+    0 0 12px rgba(251, 191, 36, 0.5);
+  animation: ledPulse 2s ease-in-out infinite;
+}
+
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Toggle switch track */
+.crt-toggle-switch {
+  display: flex;
+  justify-content: center;
+}
+
+.crt-toggle-track {
+  width: 36px;
+  height: 14px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme .crt-toggle-track {
+  background: #d0d0d0;
+  border-color: #aaa;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Toggle thumb */
+.crt-toggle-thumb {
+  position: absolute;
+  top: 1px;
+  width: 16px;
+  height: 10px;
+  background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 100%);
+  border: 1px solid #555;
+  border-radius: 2px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .crt-toggle-thumb {
+  background: linear-gradient(180deg, #fff 0%, #e0e0e0 100%);
+  border-color: #ccc;
+}
+
+/* Thumb position based on state */
+.crt-track-dark .crt-toggle-thumb {
+  left: 1px;
+}
+
+.crt-track-light .crt-toggle-thumb {
+  left: 17px;
+}
+
+/* Mode indicator text */
+.crt-toggle-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.crt-mode-option {
+  color: var(--secondary);
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.crt-mode-active {
+  color: var(--terminal-green);
+  opacity: 1;
+  text-shadow: 0 0 8px var(--terminal-green);
+}
+
+.light-theme .crt-mode-active {
+  color: var(--terminal-amber);
+  text-shadow: 0 0 8px var(--terminal-amber);
+}
+
+.crt-mode-separator {
+  color: var(--secondary);
+  opacity: 0.3;
+}
+
+/* Flicker effect on switch */
+.crt-toggle-flicker {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.crt-toggle-switching .crt-toggle-flicker {
+  animation: toggleFlicker 0.3s steps(2) forwards;
+}
+
+@keyframes toggleFlicker {
+  0% { background: transparent; }
+  20% { background: rgba(255, 255, 255, 0.1); }
+  40% { background: transparent; }
+  60% { background: rgba(255, 255, 255, 0.05); }
+  80% { background: transparent; }
+  100% { background: transparent; }
+}
+
+/* Click feedback */
+.crt-theme-toggle:active {
+  transform: translateY(1px);
+}
+
+.crt-theme-toggle:active .crt-toggle-thumb {
+  transform: scaleX(1.1);
 }
 
 /* ============================================
@@ -339,6 +559,56 @@ p {
   font-size: 14px;
   line-height: 1.8;
   min-height: 500px;
+  position: relative;
+}
+
+/* CRT Screen Effects - Hero Content */
+.terminal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.1) 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.terminal-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(74, 222, 128, 0.01) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+.light-theme .terminal-content::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.015) 1px,
+    rgba(0, 0, 0, 0.015) 2px
+  );
+}
+
+.light-theme .terminal-content::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(22, 163, 74, 0.005) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
 }
 
 /* Boot sequence */
@@ -560,16 +830,16 @@ p {
 /* Terminal sections with background images */
 .terminal-section-bg {
   position: relative;
-  overflow: hidden;
 }
 
 .terminal-section-bg::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -583,9 +853,10 @@ p {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   background: linear-gradient(
     180deg,
     var(--background) 0%,
@@ -628,17 +899,35 @@ p {
   border: 1px solid var(--terminal-border);
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
   box-shadow:
     0 0 0 1px rgba(74, 222, 128, 0.05),
-    0 0 40px rgba(74, 222, 128, 0.03),
+    0 0 30px rgba(74, 222, 128, 0.02),
+    0 20px 40px -12px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-section-window:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(74, 222, 128, 0.1),
+    0 0 40px rgba(74, 222, 128, 0.05),
     0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
 .light-theme .terminal-section-window {
   box-shadow:
     0 0 0 1px rgba(22, 163, 74, 0.05),
-    0 0 30px rgba(22, 163, 74, 0.02),
-    0 20px 40px -12px rgba(0, 0, 0, 0.08);
+    0 0 20px rgba(22, 163, 74, 0.02),
+    0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .terminal-section-window:hover {
+  border-color: rgba(22, 163, 74, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(22, 163, 74, 0.1),
+    0 0 30px rgba(22, 163, 74, 0.04),
+    0 15px 30px -10px rgba(0, 0, 0, 0.1);
 }
 
 .terminal-section-header {
@@ -650,6 +939,8 @@ p {
   border-bottom: 1px solid var(--terminal-border);
   font-family: var(--mono-font);
   font-size: 13px;
+  position: relative;
+  z-index: 10;
 }
 
 .terminal-section-title {
@@ -688,6 +979,56 @@ p {
   font-family: var(--mono-font);
   font-size: 14px;
   line-height: 1.8;
+  position: relative;
+}
+
+/* CRT Screen Effects - Inside Content */
+.terminal-section-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.1) 2px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.terminal-section-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(74, 222, 128, 0.01) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+.light-theme .terminal-section-content::before {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.015) 1px,
+    rgba(0, 0, 0, 0.015) 2px
+  );
+}
+
+.light-theme .terminal-section-content::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(22, 163, 74, 0.005) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
 }
 
 /* Terminal shared elements */
@@ -2838,12 +3179,42 @@ p {
     font-size: clamp(48px, 12vw, 80px);
   }
 
-  .theme-toggle {
-    top: 16px;
-    right: 16px;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+  /* CRT Theme Toggle Mobile */
+  .crt-theme-toggle {
+    top: 12px;
+    right: 12px;
+  }
+
+  .crt-toggle-panel {
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  .crt-toggle-label {
+    font-size: 8px;
+  }
+
+  .crt-toggle-led {
+    width: 6px;
+    height: 6px;
+  }
+
+  .crt-toggle-track {
+    width: 30px;
+    height: 12px;
+  }
+
+  .crt-toggle-thumb {
+    width: 14px;
+    height: 8px;
+  }
+
+  .crt-track-light .crt-toggle-thumb {
+    left: 14px;
+  }
+
+  .crt-toggle-mode {
+    font-size: 7px;
   }
 
   /* Terminal Hero Mobile */
