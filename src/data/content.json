@@ -1,0 +1,111 @@
+{
+  "intro": "Hey, I'm Lucas. I've been building things on the web for 15 years, currently working as a Senior Frontend Engineer. But there's more to me than code - I write about technology and life, geek out about music on my YouTube channel, and I'm always reading something interesting. Welcome to my corner of the internet.",
+  "now": {
+    "workingOn": "Building a proprietary insurance platform dashboard at Property Insurance MGU, focusing on creating intuitive workflows for the full insurance lifecycle.",
+    "reading": [
+      { "title": "A Máquina do Caos", "author": "Max Fisher" },
+      { "title": "O Velho e O Mar", "author": "Ernest Hemingway" }
+    ],
+    "listening": "Gorija has been playing on repeat lately. Can't get enough of their sound!",
+    "thinkingAbout": "I've been thinking about our role as engineers in the Era of AI. How do we adapt and thrive as AI tools become more integrated into our workflows?"
+  },
+  "writing": [
+    {
+      "id": 1,
+      "title": "De Ímola ao Greenpath: O que aprendi no Modo Monge",
+      "excerpt": "Não vou ser dramático, foram 5 dias sem Instagram.",
+      "url": "https://substack.com/home/post/p-183491182",
+      "date": "2026-01-04"
+    }
+  ],
+  "listening": {
+    "channelName": "Introducing Songs with Lucas Bittar",
+    "channelUrl": "https://www.youtube.com/@lucasbittar",
+    "channelDescription": "A channel where I share songs that have shaped my musical journey and introduce listeners to tracks they might have missed.",
+    "featuredVideo": {
+      "id": "IXQk6OdozJE",
+      "title": "THE WARNING: These LADIES Will Blow Your Mind (you've been WARNED)"
+    }
+  },
+  "reading": [
+    {
+      "id": 1,
+      "title": "A Máquina do Caos",
+      "author": "Max Fisher",
+      "status": "reading",
+      "thoughts": "Max writes using a technique that if you don't have a good attention span, you might get lost. But his insights on media manipulation are eye-opening."
+    },
+    {
+      "id": 2,
+      "title": "O Velho e O Mar",
+      "author": "Ernest Hemingway",
+      "status": "reading",
+      "thoughts": "Reading alongside 'A Máquina do Caos' has been a refreshing change of pace. Hemingway's concise prose is a joy to read."
+    },
+    {
+      "id": 3,
+      "title": "Ímola 1994",
+      "author": "Flavio Gomes",
+      "status": "favorite",
+      "thoughts": "What an incredible story about Ayrton Senna and the tragic weekend at Imola. Flavio captures the tension and emotion perfectly."
+    }
+  ],
+  "experiences": [
+    {
+      "id": "current",
+      "title": "Senior Frontend Engineer",
+      "company": "Property Insurance MGU",
+      "period": "Jan 2026 – Present",
+      "description": "Building a proprietary insurance platform from the ground up, architecting the frontend to automate the full insurance lifecycle—from submission through quoting, binding, and reporting.",
+      "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
+    },
+    {
+      "id": "guardian-service",
+      "title": "Senior Frontend Developer",
+      "company": "Guardian Service",
+      "period": "Jul – Aug 2025",
+      "description": "Rebuilt their multi-step customer intake form from scratch, dramatically improving speed and user experience while integrating with their CRM, Calendly, and cloud infrastructure.",
+      "tech": ["React", "Next.js", "Tailwind CSS", "Google Cloud", "Webhooks"]
+    },
+    {
+      "id": "gartner",
+      "title": "Senior Frontend Developer",
+      "company": "Gartner",
+      "period": "Dec 2023 – Mar 2025",
+      "description": "Enhanced an AI-powered chat tool with conversation management features and performance optimizations, seamlessly integrating with Gartner's data-driven research platform.",
+      "tech": ["React", "JavaScript", "AI Integration"]
+    },
+    {
+      "id": "sensentia",
+      "title": "Senior Frontend Developer",
+      "company": "Sensentia",
+      "period": "Nov 2023 – Sep 2024",
+      "description": "Built an AI-driven healthcare dashboard that tailors treatment plans to individual patient needs, with a strong focus on accessibility and responsive design.",
+      "tech": ["React", "TypeScript", "Healthcare AI", "Accessibility"]
+    },
+    {
+      "id": "zobrist",
+      "title": "Senior Frontend Developer",
+      "company": "Zobrist",
+      "period": "Aug 2020 – Aug 2023",
+      "description": "Architected catalog and product pages for major retail brands including The North Face, VANS, and Timberland, driving user engagement for millions of shoppers.",
+      "tech": ["JavaScript", "jQuery", "E-commerce", "Agile"]
+    },
+    {
+      "id": "bva",
+      "title": "Senior Frontend Developer",
+      "company": "BVA",
+      "period": "Feb – Dec 2019",
+      "description": "Translated design mockups into strategic digital solutions while mentoring mid-level developers and establishing code review standards across the team.",
+      "tech": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify"]
+    }
+  ],
+  "social": {
+    "substack": "https://substack.com/@lucasbittar",
+    "youtube": "https://www.youtube.com/@lucasbittar",
+    "email": "lucasbittarmagnani@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/lucasbittar",
+    "twitter": "https://x.com/lucasbittar_dev",
+    "github": "https://github.com/lucasbittar"
+  }
+}

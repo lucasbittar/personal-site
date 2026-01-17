@@ -1,12 +1,12 @@
 import React from "react";
-import GA4 from 'react-ga4';
+import GA4 from "react-ga4";
 
 const projects = [
   {
     id: 1,
     title: "Weather App",
     description:
-      "Simple and basic weather app. This app is a way I can keep up-to-date to the technology as it evolves. I started it 10 years ago as a General Assembly class project and it's become my experimental sandbox.",
+      "A weather application that's evolved with technology over 10 years. Started as a General Assembly class project and has become my experimental sandbox for trying new approaches and staying current.",
     links: [
       {
         name: "GitHub",
@@ -22,7 +22,7 @@ const projects = [
     id: 2,
     title: "MyScrobble",
     description:
-      "A music tracking and visualization app built with JavaScript, integrating the Last.fm API to scrobble user listening history and display personalized music insights",
+      "A music tracking and visualization app built with JavaScript, integrating the Last.fm API to scrobble listening history and display personalized music insights.",
     links: [
       {
         name: "GitHub",
@@ -34,33 +34,23 @@ const projects = [
       },
     ],
   },
-  {
-    id: 3,
-    title: "FastFeet",
-    description:
-      "A full-blown application including frontend, backend and mobile app for a fictitious logistics company, built with React, Node.JS and ReactNative. Enables administrators to manage orders, delivery personnel, and recipients through a responsive dashboard, with a focus on intuitive UI/UX and performance optimization.",
-    links: [
-      {
-        name: "GitHub",
-        url: "https://github.com/lucasbittar/gostack-fastfeet",
-      },
-    ],
-  },
 ];
 
 const Projects = () => {
-
   const handleProjectClick = (e) => {
     GA4.event({
-      category: 'Projects',
-      action: 'Click',
+      category: "Projects",
+      action: "Click",
       label: `URL: ${e.target.href}`,
     });
-  }
+  };
 
   return (
-    <div className="section">
+    <div className="section projects-section">
       <h2>Projects</h2>
+      <p className="section-intro">
+        Side projects where I experiment with ideas and learn new things.
+      </p>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div

@@ -1,3 +1,4 @@
+/* CSS Custom Properties - Dark Theme (Default) */
 :root {
   --primary: #d0d0d0;
   --secondary: #4a4a4a;
@@ -5,7 +6,22 @@
   --background: #020202;
   --white: #ffffff;
   --border: #ccc;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-hover-bg: rgba(156, 71, 155, 0.05);
   --font: "Ubuntu", sans-serif;
+  --transition-speed: 0.3s;
+}
+
+/* Light Theme */
+.light-theme {
+  --primary: #333333;
+  --secondary: #666666;
+  --accent: #9c479b;
+  --background: #f5f5f5;
+  --white: #1a1a1a;
+  --border: #ddd;
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --card-hover-bg: rgba(156, 71, 155, 0.08);
 }
 
 * {
@@ -19,6 +35,8 @@ body {
   font-family: var(--font);
   color: var(--primary);
   overflow-x: hidden;
+  transition: background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
 }
 
 ul,
@@ -29,7 +47,7 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed) ease;
 }
 
 a:hover {
@@ -52,6 +70,7 @@ h1 {
   color: var(--white);
   text-transform: uppercase;
   margin: 0;
+  transition: color var(--transition-speed) ease;
 }
 
 h2 {
@@ -61,6 +80,7 @@ h2 {
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: -0.01em;
+  transition: color var(--transition-speed) ease;
 }
 
 h3 {
@@ -68,6 +88,7 @@ h3 {
   font-weight: 400;
   color: var(--primary);
   margin-bottom: 12px;
+  transition: color var(--transition-speed) ease;
 }
 
 h4 {
@@ -76,12 +97,14 @@ h4 {
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  transition: color var(--transition-speed) ease;
 }
 
 h5 {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
   color: var(--primary);
+  transition: color var(--transition-speed) ease;
 }
 
 p {
@@ -89,6 +112,7 @@ p {
   color: var(--primary);
   font-weight: 300;
   line-height: 1.7;
+  transition: color var(--transition-speed) ease;
 }
 
 /* Layout */
@@ -98,7 +122,33 @@ p {
   padding: 60px 80px;
 }
 
-/* Header Section - Split Layout from Design 3 */
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-toggle:hover {
+  background: var(--card-hover-bg);
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Header Section */
 header {
   position: relative;
 }
@@ -135,18 +185,15 @@ header {
   padding-left: 20px;
 }
 
-.header-description h2 {
-  font-size: clamp(16px, 3vw, 36px);
+.header-intro {
+  font-size: clamp(16px, 2.5vw, 28px);
   font-weight: 300;
   color: var(--accent);
-  text-transform: none;
-  letter-spacing: 0;
-  line-height: 1.4;
-  max-width: 800px;
-  margin-bottom: 0;
+  line-height: 1.6;
+  max-width: 600px;
 }
 
-/* Section Spacing - Full Viewport from Design 1 */
+/* Section Spacing */
 .section {
   min-height: 100vh;
   padding: 120px 0;
@@ -154,19 +201,454 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: border-color var(--transition-speed) ease;
 }
 
 .section h2 {
   margin-bottom: 60px;
 }
 
+.section-intro {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+  margin-bottom: 60px;
+  max-width: 800px;
+  color: var(--secondary);
+}
+
+.section-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-size: 16px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-speed) ease;
+}
+
+.section-cta:hover {
+  gap: 12px;
+}
+
+.section-cta i {
+  transition: transform var(--transition-speed) ease;
+}
+
+.section-cta:hover i {
+  transform: translateX(4px);
+}
+
+/* Scroll Animations */
+.animate-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Now Section */
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.now-item {
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  padding: 32px;
+  transition: all var(--transition-speed) ease;
+}
+
+.now-item:hover {
+  border-color: var(--accent);
+  background: var(--card-hover-bg);
+}
+
+.now-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.now-label i {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.now-label span {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.now-item p {
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
+}
+
+.now-item p strong {
+  color: var(--white);
+}
+
+.now-reading-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.now-reading-list p {
+  margin: 0;
+}
+
+/* Spotify Integration */
+.now-item-spotify .now-label i {
+  color: #1db954;
+}
+
+.spotify-loading {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.spotify-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-speed) ease;
+}
+
+.spotify-track:hover {
+  color: inherit;
+}
+
+.spotify-album-art {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform var(--transition-speed) ease;
+}
+
+.spotify-track:hover .spotify-album-art {
+  transform: scale(1.05);
+}
+
+.spotify-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.spotify-title {
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-artist {
+  font-size: clamp(12px, 1vw, 14px);
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #1db954;
+  margin-top: 4px;
+}
+
+.spotify-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.spotify-bars span {
+  width: 3px;
+  background: #1db954;
+  border-radius: 1px;
+  animation: spotify-bar 0.8s ease-in-out infinite;
+}
+
+.spotify-bars span:nth-child(1) {
+  height: 4px;
+  animation-delay: 0s;
+}
+
+.spotify-bars span:nth-child(2) {
+  height: 8px;
+  animation-delay: 0.2s;
+}
+
+.spotify-bars span:nth-child(3) {
+  height: 6px;
+  animation-delay: 0.4s;
+}
+
+@keyframes spotify-bar {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.5);
+  }
+}
+
+/* Writing Section */
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.writing-card {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  padding: 32px;
+  transition: all var(--transition-speed) ease;
+}
+
+.writing-card:hover {
+  border-color: var(--accent);
+  background: var(--card-hover-bg);
+  transform: translateY(-4px);
+  color: inherit;
+}
+
+.writing-date {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.writing-card h3 {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.writing-card p {
+  font-size: clamp(14px, 1.2vw, 16px);
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.writing-link {
+  font-size: 14px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.writing-link i {
+  transition: transform var(--transition-speed) ease;
+}
+
+.writing-card:hover .writing-link i {
+  transform: translateX(4px);
+}
+
+/* Listening Section */
+.listening-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.listening-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.channel-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+}
+
+.channel-badge i {
+  color: #ff0000;
+  font-size: 24px;
+}
+
+.channel-badge span {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+/* Reading Section */
+.reading-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.reading-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--accent);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reading-group h3 i {
+  font-size: 18px;
+}
+
+.books-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.book-card {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  transition: all var(--transition-speed) ease;
+}
+
+.book-card:hover {
+  border-color: var(--accent);
+  background: var(--card-hover-bg);
+}
+
+.book-status {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-hover-bg);
+  border-radius: 50%;
+}
+
+.book-status i {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.book-info h4 {
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.book-author {
+  font-size: 14px;
+  color: var(--secondary);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.book-thoughts {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--primary);
+  font-style: italic;
+}
+
 /* About Section */
+.about-section .about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
 .about-intro {
   font-size: clamp(18px, 2vw, 28px);
   line-height: 1.6;
-  margin-bottom: 80px;
   max-width: 900px;
   font-weight: 300;
+}
+
+.toptal-inline-badge {
+  display: inline-block;
+}
+
+.toptal-inline-badge a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-speed) ease;
+}
+
+.toptal-inline-badge a:hover {
+  background: var(--accent);
+  color: var(--background);
 }
 
 .skills-list {
@@ -197,7 +679,7 @@ header {
   line-height: 1.8;
 }
 
-/* Projects Section - Card Grid from Design 1 */
+/* Projects Section */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -206,17 +688,17 @@ header {
 }
 
 .project-item {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
   border: 1px solid var(--secondary);
   padding: 40px;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
   position: relative;
   overflow: hidden;
 }
 
 .project-item:hover {
   border-color: var(--accent);
-  background: rgba(156, 71, 155, 0.05);
+  background: var(--card-hover-bg);
   transform: translateY(-4px);
 }
 
@@ -264,7 +746,7 @@ header {
   color: var(--accent);
   padding: 8px 0;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
 }
 
 .project-links a:hover {
@@ -272,84 +754,81 @@ header {
 }
 
 /* Experience Section */
-.experience-list {
-  max-width: 1000px;
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
-.experience-item {
-  border-left: 2px solid var(--secondary);
-  padding: 30px 40px;
-  margin-bottom: 40px;
-  transition: border-color 0.3s ease;
-  position: relative;
+.experience-card {
+  background: var(--card-bg);
+  border: 1px solid var(--secondary);
+  padding: 32px;
+  transition: all var(--transition-speed) ease;
 }
 
-.experience-item:hover {
-  border-left-color: var(--accent);
+.experience-card:hover {
+  border-color: var(--accent);
+  background: var(--card-hover-bg);
+  transform: translateY(-4px);
 }
 
-.experience-item::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 40px;
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.experience-header {
+.experience-card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
-  border-bottom: none;
-  flex-wrap: wrap;
+  margin-bottom: 16px;
   gap: 12px;
 }
 
-.experience-title {
-  flex: 1;
-}
-
-.experience-item h3 {
-  font-size: clamp(18px, 2vw, 24px);
+.experience-card h3 {
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 8px;
-}
-
-.experience-item h4 {
-  color: var(--accent);
   margin-bottom: 4px;
 }
 
-.experience-duration {
-  font-size: clamp(12px, 1vw, 14px);
+.experience-card h4 {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience-period {
+  font-size: clamp(11px, 1vw, 13px);
   color: var(--secondary);
-  text-align: right;
+  white-space: nowrap;
 }
 
-.experience-duration em {
-  display: block;
-  margin-top: 4px;
-  font-style: normal;
-  color: var(--primary);
-}
-
-.experience-responsibilities {
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 16px;
-}
-
-.experience-responsibilities li {
+.experience-description {
   font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
   color: var(--primary);
-  line-height: 1.8;
-  margin-bottom: 8px;
-  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.experience-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--accent);
+  background: var(--card-hover-bg);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  transition: all var(--transition-speed) ease;
+}
+
+.experience-card:hover .tech-tag {
+  background: var(--accent);
+  color: var(--background);
 }
 
 /* Social Section */
@@ -384,19 +863,19 @@ header {
 .contact a {
   font-size: clamp(18px, 2vw, 24px);
   color: var(--accent);
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
   position: relative;
 }
 
 .contact a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
   width: 0;
   height: 2px;
   background: var(--accent);
-  transition: width 0.3s ease;
+  transition: width var(--transition-speed) ease;
 }
 
 .contact a:hover::after {
@@ -423,7 +902,7 @@ header {
     align-items: center;
     gap: 8px;
     opacity: 0.5;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-speed) ease;
     cursor: pointer;
   }
 
@@ -452,7 +931,11 @@ header {
   }
 
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
       transform: translateY(0);
     }
     40% {
@@ -487,6 +970,14 @@ header {
     font-size: clamp(48px, 12vw, 80px);
   }
 
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
   .header-container {
     min-height: 100vh;
     grid-template-columns: 1fr;
@@ -510,7 +1001,7 @@ header {
     text-align: center;
   }
 
-  .header-description h2 {
+  .header-intro {
     margin: 0 auto;
   }
 
@@ -519,6 +1010,53 @@ header {
     padding: 80px 0;
   }
 
+  .section-intro {
+    margin-bottom: 40px;
+  }
+
+  /* Now Section Mobile */
+  .now-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .now-item {
+    padding: 24px;
+  }
+
+  /* Writing Section Mobile */
+  .writing-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .writing-card {
+    padding: 24px;
+  }
+
+  /* Listening Section Mobile */
+  .listening-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .listening-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Reading Section Mobile */
+  .books-list {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card {
+    padding: 20px;
+  }
+
+  /* Projects Mobile */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -528,24 +1066,32 @@ header {
     padding: 30px 24px;
   }
 
-  .experience-item {
-    padding: 20px 24px;
+  /* Experience Mobile */
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .experience-header {
+  .experience-card {
+    padding: 24px;
+  }
+
+  .experience-card-header {
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
 
-  .experience-duration {
-    text-align: left;
+  .experience-period {
+    margin-top: 8px;
   }
 
+  /* Skills Mobile */
   .skills-list {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
+  /* Contact Mobile */
   .contact {
     gap: 30px;
   }
