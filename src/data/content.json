@@ -1,5 +1,15 @@
 {
   "intro": "Hey, I'm Lucas. I've been building things on the web for 15 years, currently working as a Senior Frontend Engineer. But there's more to me than code - I write about technology and life, geek out about music on my YouTube channel, and I'm always reading something interesting. Welcome to my corner of the internet.",
+  "hero": {
+    "rotatingWords": [
+      "software engineer",
+      "content creator",
+      "inspiring gamer",
+      "guitar player",
+      "yoyo noobie",
+      "creative builder"
+    ]
+  },
   "now": {
     "workingOn": "Building a proprietary insurance platform dashboard at Property Insurance MGU, focusing on creating intuitive workflows for the full insurance lifecycle.",
     "reading": [
@@ -22,10 +32,32 @@
     "channelName": "Introducing Songs with Lucas Bittar",
     "channelUrl": "https://www.youtube.com/@lucasbittar",
     "channelDescription": "A channel where I share songs that have shaped my musical journey and introduce listeners to tracks they might have missed.",
-    "featuredVideo": {
-      "id": "IXQk6OdozJE",
-      "title": "THE WARNING: These LADIES Will Blow Your Mind (you've been WARNED)"
-    }
+    "videos": [
+      {
+        "id": "IXQk6OdozJE",
+        "title": "The Warning: These Ladies Will Blow Your Mind"
+      },
+      {
+        "id": "EuafNka8CCE",
+        "title": "A Melancholic Ballad by the Pioneers of Heavy Metal"
+      },
+      {
+        "id": "TF9_t4DF8-o",
+        "title": "The Warning Absolutely Killed It At the MTV EMAs Performance Of Automatic Sun"
+      },
+      {
+        "id": "T-R3fHfLt30",
+        "title": "Taylor Swift Paints a Precise Picture of a Intense Relationship Doomed to Fail"
+      },
+      {
+        "id": "7RHPGqM9cEw",
+        "title": "The Warning Captures the Complexities of Human Emotions and the Pain of Letting Go"
+      },
+      {
+        "id": "jSIgFCKkkBw",
+        "title": "A Deep Dive Into the REAL Meaning of Life"
+      }
+    ]
   },
   "reading": [
     {

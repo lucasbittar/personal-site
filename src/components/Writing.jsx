@@ -15,47 +15,87 @@ const Writing = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
+    return date.toISOString().split('T')[0];
   };
 
   return (
-    <div className="section writing-section">
-      <h2>Writing</h2>
-      <p className="section-intro">
-        Thoughts on technology, life, and everything in between.
-      </p>
-      <div className="writing-grid">
-        {writing.map((post) => (
-          <a
-            key={post.id}
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="writing-card"
-            onClick={() => handlePostClick(post.url)}
-          >
-            <span className="writing-date">{formatDate(post.date)}</span>
-            <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <span className="writing-link">
-              Read on Substack <i className="fa-solid fa-arrow-right"></i>
-            </span>
-          </a>
-        ))}
+    <section className="terminal-section">
+      <div className="terminal-section-window">
+        <div className="terminal-section-header">
+          <span className="terminal-section-title">
+            <span className="terminal-prompt">$</span> ls -la ~/posts/
+          </span>
+          <span className="terminal-section-status">
+            {writing.length} files
+          </span>
+        </div>
+
+        <div className="terminal-section-content">
+          <div className="terminal-comment"># Recent writings and thoughts</div>
+
+          <div className="terminal-file-list">
+            <div className="terminal-file-header">
+              <span>permissions</span>
+              <span>date</span>
+              <span>filename</span>
+            </div>
+
+            {writing.map((post) => (
+              <a
+                key={post.id}
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="terminal-file-row"
+                onClick={() => handlePostClick(post.url)}
+              >
+                <span className="terminal-permissions">-rw-r--r--</span>
+                <span className="terminal-date">{formatDate(post.date)}</span>
+                <span className="terminal-filename">{post.title.toLowerCase().replace(/\s+/g, '-').substring(0, 40)}.md</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="terminal-posts-detail">
+            {writing.map((post, index) => (
+              <a
+                key={post.id}
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="terminal-post-card"
+                onClick={() => handlePostClick(post.url)}
+              >
+                <div className="terminal-post-header">
+                  <span className="terminal-post-index">[{String(index).padStart(2, '0')}]</span>
+                  <span className="terminal-post-date">{formatDate(post.date)}</span>
+                </div>
+                <h3 className="terminal-post-title">{post.title}</h3>
+                <p className="terminal-post-excerpt">{post.excerpt}</p>
+                <span className="terminal-post-link">
+                  <span className="terminal-prompt">$</span> open --url substack
+                  <span className="terminal-arrow">→</span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <div className="terminal-cta">
+            <a
+              href={social.substack}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="terminal-cta-link"
+            >
+              <span className="terminal-prompt">$</span>
+              <span className="terminal-command">open</span>
+              <span className="terminal-flag">--all-posts</span>
+              <span className="terminal-arrow">→</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <a
-        href={social.substack}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="section-cta"
-      >
-        View all posts <i className="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
+    </section>
   );
 };
 

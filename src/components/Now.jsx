@@ -24,87 +24,103 @@ const Now = () => {
     };
 
     fetchSpotify();
-    // Refresh every 30 seconds
     const interval = setInterval(fetchSpotify, 30000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="section now-section">
-      <h2>Now</h2>
-      <p className="section-intro">
-        A living snapshot of what I'm currently focused on.
-      </p>
-      <div className="now-grid">
-        <div className="now-item">
-          <div className="now-label">
-            <i className="fa-solid fa-laptop-code"></i>
-            <span>Working on</span>
-          </div>
-          <p>{now.workingOn}</p>
+    <section className="terminal-section">
+      <div className="terminal-section-window">
+        <div className="terminal-section-header">
+          <span className="terminal-section-title">
+            <span className="terminal-prompt">$</span> cat ~/now.log
+          </span>
+          <span className="terminal-section-status">
+            <span className="status-dot status-dot-green" /> LIVE
+          </span>
         </div>
-        <div className="now-item">
-          <div className="now-label">
-            <i className="fa-solid fa-book-open"></i>
-            <span>Reading</span>
+
+        <div className="terminal-section-content">
+          <div className="terminal-comment"># Current status snapshot</div>
+          <div className="terminal-comment"># Last updated: {new Date().toLocaleDateString()}</div>
+
+          <div className="terminal-output-block">
+            <div className="terminal-var">
+              <span className="terminal-key">WORKING_ON</span>=
+              <span className="terminal-string">"{now.workingOn}"</span>
+            </div>
           </div>
-          <div className="now-reading-list">
+
+          <div className="terminal-output-block">
+            <div className="terminal-var">
+              <span className="terminal-key">READING</span>=[
+            </div>
             {now.reading.map((book, index) => (
-              <p key={index}>
-                <strong>{book.title}</strong> by {book.author}
-              </p>
-            ))}
-          </div>
-        </div>
-        <div className="now-item now-item-spotify">
-          <div className="now-label">
-            <i className="fa-brands fa-spotify"></i>
-            <span>Listening to</span>
-          </div>
-          {spotifyLoading ? (
-            <p className="spotify-loading">Loading...</p>
-          ) : spotify ? (
-            <a
-              href={spotify.songUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="spotify-track"
-            >
-              {spotify.albumArt && (
-                <img
-                  src={spotify.albumArt}
-                  alt={`${spotify.album} cover`}
-                  className="spotify-album-art"
-                />
-              )}
-              <div className="spotify-info">
-                <span className="spotify-title">{spotify.title}</span>
-                <span className="spotify-artist">{spotify.artist}</span>
-                {spotify.isPlaying && (
-                  <span className="spotify-status">
-                    <span className="spotify-bars">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </span>
-                    Now playing
-                  </span>
-                )}
+              <div key={index} className="terminal-array-item">
+                <span className="terminal-string">"{book.title}"</span>
+                <span className="terminal-secondary"> by {book.author}</span>
+                {index < now.reading.length - 1 && ","}
               </div>
-            </a>
-          ) : (
-            <p>{now.listening}</p>
-          )}
-        </div>
-        <div className="now-item">
-          <div className="now-label">
-            <i className="fa-solid fa-lightbulb"></i>
-            <span>Thinking about</span>
+            ))}
+            <div className="terminal-var">]</div>
           </div>
-          <p>{now.thinkingAbout}</p>
+
+          <div className="terminal-output-block">
+            <div className="terminal-var">
+              <span className="terminal-key">LISTENING</span>=
+            </div>
+            {spotifyLoading ? (
+              <div className="terminal-loading">
+                <span className="loading-spinner" /> Fetching from Spotify API...
+              </div>
+            ) : spotify ? (
+              <a
+                href={spotify.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="terminal-spotify-link"
+              >
+                <div className="terminal-spotify-track">
+                  {spotify.albumArt && (
+                    <img
+                      src={spotify.albumArt}
+                      alt={`${spotify.album} cover`}
+                      className="terminal-album-art"
+                    />
+                  )}
+                  <div className="terminal-track-info">
+                    <span className="terminal-track-title">{spotify.title}</span>
+                    <span className="terminal-track-artist">{spotify.artist}</span>
+                    {spotify.isPlaying && (
+                      <span className="terminal-now-playing">
+                        <span className="terminal-bars">
+                          <span /><span /><span />
+                        </span>
+                        NOW_PLAYING
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <span className="terminal-string">"{now.listening}"</span>
+            )}
+          </div>
+
+          <div className="terminal-output-block">
+            <div className="terminal-var">
+              <span className="terminal-key">THINKING_ABOUT</span>=
+              <span className="terminal-string">"{now.thinkingAbout}"</span>
+            </div>
+          </div>
+
+          <div className="terminal-prompt-line">
+            <span className="terminal-prompt">$</span>
+            <span className="terminal-cursor">█</span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
