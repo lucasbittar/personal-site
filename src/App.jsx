@@ -52,11 +52,11 @@ const App = () => {
       <div className="wrapper">
         <Header />
         <Now />
+        <About />
+        <Experiences />
         <Writing />
         <Listening />
         <Reading />
-        <About />
-        <Experiences />
         <Projects />
         <Social />
       </div>

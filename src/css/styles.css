@@ -571,8 +571,8 @@ p {
     0deg,
     transparent 0px,
     transparent 1px,
-    rgba(0, 0, 0, 0.03) 1px,
-    rgba(0, 0, 0, 0.03) 2px
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.1) 2px
   );
   pointer-events: none;
   z-index: 1000;
@@ -830,16 +830,16 @@ p {
 /* Terminal sections with background images */
 .terminal-section-bg {
   position: relative;
-  overflow: hidden;
 }
 
 .terminal-section-bg::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -853,9 +853,10 @@ p {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   background: linear-gradient(
     180deg,
     var(--background) 0%,
@@ -990,8 +991,8 @@ p {
     0deg,
     transparent 0px,
     transparent 1px,
-    rgba(0, 0, 0, 0.03) 1px,
-    rgba(0, 0, 0, 0.03) 2px
+    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.1) 2px
   );
   pointer-events: none;
   z-index: 1000;
