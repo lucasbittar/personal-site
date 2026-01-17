@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import GA4 from "react-ga4";
+import { Analytics } from "@vercel/analytics/react";
 
 import Header from "./components/Header";
 import Now from "./components/Now";
@@ -47,17 +48,20 @@ const App = () => {
   }, []);
 
   return (
-    <div className="wrapper">
-      <Header />
-      <Now />
-      <Writing />
-      <Listening />
-      <Reading />
-      <About />
-      <Experiences />
-      <Projects />
-      <Social />
-    </div>
+    <>
+      <div className="wrapper">
+        <Header />
+        <Now />
+        <Writing />
+        <Listening />
+        <Reading />
+        <About />
+        <Experiences />
+        <Projects />
+        <Social />
+      </div>
+      <Analytics />
+    </>
   );
 };
 
