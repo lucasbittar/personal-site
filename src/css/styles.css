@@ -1124,9 +1124,10 @@ p {
 }
 
 .terminal-spotify-track {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 16px;
+  position: relative;
 }
 
 .terminal-album-art {
@@ -2592,7 +2593,6 @@ p {
   color: inherit;
   display: flex;
   gap: 16px;
-  position: relative;
   text-decoration: none;
   transition: all var(--transition-speed) ease;
 }
