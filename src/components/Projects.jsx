@@ -5,14 +5,14 @@ const projects = [
   {
     id: 1,
     name: "weatherapp",
-    title: "Weather App",
+    title: "Weather Terminal",
     description:
       "A weather application that's evolved with technology over 10 years. Started as a General Assembly class project and has become my experimental sandbox for trying new approaches and staying current.",
     links: [
       { name: "source", url: "https://github.com/lucasbittar/weatherapp" },
-      { name: "demo", url: "https://lucasbittar.dev/projects/weatherapp" },
+      { name: "demo", url: "https://weatherapp-kohl-tau.vercel.app/" },
     ],
-    status: "maintained",
+    status: "active",
   },
   {
     id: 2,
