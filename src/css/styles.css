@@ -1152,12 +1152,15 @@ p {
 }
 
 .terminal-now-playing {
-  display: flex;
   align-items: center;
-  gap: 6px;
+  bottom: 0;
   color: #1db954;
+  display: flex;
   font-size: 11px;
+  gap: 6px;
   margin-top: 4px;
+  position: absolute;
+  right: 10px;
 }
 
 .terminal-bars {
@@ -2585,11 +2588,12 @@ p {
 }
 
 .spotify-track {
-  display: flex;
   align-items: center;
-  gap: 16px;
-  text-decoration: none;
   color: inherit;
+  display: flex;
+  gap: 16px;
+  position: relative;
+  text-decoration: none;
   transition: all var(--transition-speed) ease;
 }
 
