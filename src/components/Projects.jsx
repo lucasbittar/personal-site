@@ -5,25 +5,27 @@ const projects = [
   {
     id: 1,
     name: "weatherapp",
-    title: "Weather Terminal",
+    title: "Weather Terminal v3.0",
     description:
-      "A weather application that's evolved with technology over 10 years. Started as a General Assembly class project and has become my experimental sandbox for trying new approaches and staying current.",
+      "A retro-inspired, command-line interface (CLI) weather application built with React. It combines a nostalgic 80s terminal aesthetic with real-time data fetching to provide a distraction-free weather forecasting experience.",
     links: [
       { name: "source", url: "https://github.com/lucasbittar/weatherapp" },
       { name: "demo", url: "https://weatherapp-kohl-tau.vercel.app/" },
     ],
+    tags: ["React", "Vite", "OpenWeather API", "Geolocation", "Retro UI"],
     status: "active",
   },
   {
     id: 2,
     name: "myscrobble",
-    title: "MyScrobble",
+    title: "MyScrobble.fm",
     description:
-      "A music tracking and visualization app built with JavaScript, integrating the Last.fm API to scrobble listening history and display personalized music insights.",
+      "MyScrobble transforms your Spotify listening data into meaningful insights. Connect your Spotify account and discover patterns in your music taste, get AI-powered recommendations, find concerts near you, and create shareable cards of your top artists and tracks.",
     links: [
       { name: "source", url: "https://github.com/lucasbittar/myscrobble" },
-      { name: "demo", url: "https://lucasbittar.dev/projects/myscrobble" },
+      { name: "demo", url: "https://myscrobble.fm" },
     ],
+    tags: ["React", "Next.js", "Spotify API", "AI", "Data Visualization"],
     status: "active",
   },
 ];
@@ -73,6 +75,16 @@ const Projects = () => {
                   <div className="terminal-comment"># README.md</div>
                   <p>{project.description}</p>
                 </div>
+
+                {project.tags && project.tags.length > 0 && (
+                  <div className="terminal-project-tags">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="terminal-tech-tag">
+                        [{tag}]
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <div className="terminal-project-links">
                   {project.links.map((link, i) => (

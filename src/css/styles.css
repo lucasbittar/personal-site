@@ -2262,6 +2262,13 @@ p {
   line-height: 1.7;
 }
 
+.terminal-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
 .terminal-project-links {
   display: flex;
   gap: 12px;
