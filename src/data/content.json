@@ -89,7 +89,7 @@
       "company": "Property Insurance MGU",
       "period": "Jan 2026 – Present",
       "description": "Building a proprietary insurance platform from the ground up, architecting the frontend to automate the full insurance lifecycle—from submission through quoting, binding, and reporting.",
-      "tech": ["React", "Typescript", "Go", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
+      "tech": ["React", "TypeScript", "Go", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
     },
     {
       "id": "guardian-service",
@@ -97,7 +97,7 @@
       "company": "Guardian Service",
       "period": "Jul – Aug 2025",
       "description": "Rebuilt their multi-step customer intake form from scratch, dramatically improving speed and user experience while integrating with their CRM, Calendly, and cloud infrastructure.",
-      "tech": ["React", "Next.js", "Tailwind CSS", "Google Cloud", "Webhooks"]
+      "tech": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Google Cloud", "Webhooks"]
     },
     {
       "id": "gartner",
