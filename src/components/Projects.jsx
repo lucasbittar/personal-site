@@ -12,7 +12,7 @@ const projects = [
       { name: "source", url: "https://github.com/lucasbittar/weatherapp" },
       { name: "demo", url: "https://weatherapp-kohl-tau.vercel.app/" },
     ],
-    tags: ["Full-stack", "React", "Javascript", "OpenWeather API", "Geolocation", "Gemini AI"],
+    tags: ["Full-stack", "React", "Typescript", "OpenWeather API", "Geolocation", "Gemini AI"],
     status: "active",
   },
   {
