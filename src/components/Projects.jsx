@@ -4,6 +4,18 @@ import GA4 from "react-ga4";
 const projects = [
   {
     id: 1,
+    name: "cartadeadeus",
+    title: "Carta de Adeus",
+    description:
+      "A fan tribute to Brazilian rock band Fresno's new album. Write and share farewell letters with people around the world. Explore heartfelt messages on a global map and be part of a collective expression of goodbyes.",
+    links: [
+      { name: "demo", url: "https://www.cartadeadeus.cc/" },
+    ],
+    tags: ["Full-stack", "React", "Next.js", "TypeScript", "Supabase", "Redis", "Fresno"],
+    status: "active",
+  },
+  {
+    id: 2,
     name: "weatherapp",
     title: "Weather Terminal v3.0",
     description:
@@ -16,7 +28,7 @@ const projects = [
     status: "active",
   },
   {
-    id: 2,
+    id: 3,
     name: "myscrobble",
     title: "MyScrobble.fm",
     description:

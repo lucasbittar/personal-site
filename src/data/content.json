@@ -11,7 +11,11 @@
     ]
   },
   "now": {
-    "workingOn": "Building a proprietary insurance platform dashboard at Property Insurance MGU, focusing on creating intuitive workflows for the full insurance lifecycle. I'm also working on the MyScrobble.fm project revamp. Now I feel like I have the tools to finally build the features I have always dreamed of. Really excited to ship it real soon! Stay tuned!",
+    "workingOn": [
+      "Building a proprietary insurance platform dashboard at Property Insurance MGU, focusing on creating intuitive workflows for the full insurance lifecycle.",
+      "Revamping MyScrobble.fm with new features I've always dreamed of. Really excited to ship it soon!",
+      "Maintaining Carta de Adeus, a fan tribute to Fresno's new album. As a fan of their music myself, it's awesome to build something that might reach lots of people!"
+    ],
     "reading": [
       { "title": "A Máquina do Caos", "author": "Max Fisher" },
       { "title": "O Velho e O Mar", "author": "Ernest Hemingway" }
