@@ -46,9 +46,21 @@ const Now = () => {
 
           <div className="terminal-output-block">
             <div className="terminal-var">
-              <span className="terminal-key">WORKING_ON</span>=
-              <span className="terminal-string">"{now.workingOn}"</span>
+              <span className="terminal-key">WORKING_ON</span>=[
             </div>
+            {Array.isArray(now.workingOn) ? (
+              now.workingOn.map((item, index) => (
+                <div key={index} className="terminal-array-item">
+                  <span className="terminal-string">"{item}"</span>
+                  {index < now.workingOn.length - 1 && ","}
+                </div>
+              ))
+            ) : (
+              <div className="terminal-array-item">
+                <span className="terminal-string">"{now.workingOn}"</span>
+              </div>
+            )}
+            <div className="terminal-var">]</div>
           </div>
 
           <div className="terminal-output-block">
