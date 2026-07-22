@@ -3,6 +3,18 @@ import GA4 from "react-ga4";
 
 const projects = [
   {
+    id: 4,
+    name: "pv7",
+    title: "PV7 · Pabllo Vittar",
+    description:
+      "The official hotsite and fan-engagement portal for global pop star Pabllo Vittar's PV7 album rollout. It pairs a gated lead-capture flow with a fully anonymized 1-to-5 star track-ranking system, plus an admin-flippable, multi-phase campaign — countdown, album reveal, pre-save, and single release — that goes live with zero redeploys. Engineered to stay fast under launch-day traffic surges.",
+    links: [
+      { name: "demo", url: "https://pabllovittar.digital" },
+    ],
+    tags: ["Full-stack", "Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Upstash Redis", "i18n"],
+    status: "active",
+  },
+  {
     id: 1,
     name: "cartadeadeus",
     title: "Carta de Adeus",
