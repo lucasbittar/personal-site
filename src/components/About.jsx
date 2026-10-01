@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   const skills = [
     { category: "Frontend", items: ["JavaScript", "React", "TypeScript", "HTML", "CSS/SCSS", "UI/UX", "Accessibility"], level: 95 },
-    { category: "Backend", items: ["Node.js"], level: 60 },
+    { category: "Backend", items: ["Node.js", "Go", "Postgres", "AWS"], level: 60 },
     { category: "Mobile", items: ["React Native"], level: 70 },
     { category: "Tools", items: ["VIM", "TMUX", "Git", "Chrome DevTools"], level: 85 },
     { category: "Learning", items: ["Data Structures", "Algorithms", "System Design"], level: 45 },
