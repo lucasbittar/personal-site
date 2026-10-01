@@ -13,13 +13,13 @@
   "now": {
     "workingOn": [
       "Shipping the official hotsite for global pop star Pabllo Vittar's PV7 album rollout — a high-traffic, multi-phase fan-engagement portal (gated voting, countdown, album reveal, single drop) that flips new phases live with zero redeploys. Wild to build something this many fans will see!",
-      "Building a proprietary insurance platform dashboard at Property Insurance MGU, focusing on creating intuitive workflows for the full insurance lifecycle.",
+      "Building and maintaining the live underwriting platform at Index Risk, a specialty MGU. Brokers submit a risk, we quote it, bind it, and keep the book visible.",
       "Revamping MyScrobble.fm with new features I've always dreamed of. Really excited to ship it soon!",
       "Maintaining Carta de Adeus, a fan tribute to Fresno's new album. As a fan of their music myself, it's awesome to build something that might reach lots of people!"
     ],
     "reading": [
       { "title": "A Máquina do Caos", "author": "Max Fisher" },
-      { "title": "O Velho e O Mar", "author": "Ernest Hemingway" }
+      { "title": "The Creative Act: A Way of Being", "author": "Rick Rubin" }
     ],
     "listening": "Gorija has been playing on repeat lately. Can't get enough of their sound!",
     "thinkingAbout": "I've been thinking about our role as engineers in the Era of AI. How do we adapt and thrive as AI tools become more integrated into our workflows?"
@@ -76,8 +76,8 @@
       "id": 2,
       "title": "O Velho e O Mar",
       "author": "Ernest Hemingway",
-      "status": "reading",
-      "thoughts": "Reading alongside 'A Máquina do Caos' has been a refreshing change of pace. Hemingway's concise prose is a joy to read."
+      "status": "finished",
+      "thoughts": "Reading it alongside 'A Máquina do Caos' was a refreshing change of pace. Hemingway's concise prose is a joy to read."
     },
     {
       "id": 3,
@@ -85,16 +85,22 @@
       "author": "Flavio Gomes",
       "status": "favorite",
       "thoughts": "What an incredible story about Ayrton Senna and the tragic weekend at Imola. Flavio captures the tension and emotion perfectly."
+    },
+    {
+      "id": 4,
+      "title": "The Creative Act: A Way of Being",
+      "author": "Rick Rubin",
+      "status": "reading"
     }
   ],
   "experiences": [
     {
       "id": "current",
       "title": "Senior Full-stack Engineer",
-      "company": "Property Insurance MGU",
+      "company": "Index Risk",
       "period": "Jan 2026 – Present",
-      "description": "Building a proprietary insurance platform from the ground up, architecting the frontend to automate the full insurance lifecycle—from submission through quoting, binding, and reporting.",
-      "tech": ["React", "TypeScript", "Go", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
+      "description": "Developed from the ground up and maintaining a live underwriting platform for Index Risk, a specialty MGU. Brokers submit a risk, we quote it, bind it, and keep the book visible. I work across the stack: React/TypeScript on the product, Go/Postgres/AWS underneath.",
+      "tech": ["React", "TypeScript", "Go", "Postgres", "AWS", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
     },
     {
       "id": "guardian-service",
