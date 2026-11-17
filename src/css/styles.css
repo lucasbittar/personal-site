@@ -3529,3 +3529,43 @@ p {
     animation: none;
   }
 }
+
+/* Hero: headline, open-to and calls to action */
+.terminal-headline {
+  color: var(--white);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.terminal-open-to {
+  color: var(--terminal-green);
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.terminal-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.terminal-cta .terminal-project-link {
+  text-decoration: none;
+}
+
+.terminal-cta-primary {
+  border-style: solid;
+  background: rgba(74, 222, 128, 0.12);
+}
+
+/* Project outcome line */
+.terminal-project-outcome {
+  margin: 10px 0 4px;
+  color: var(--terminal-green);
+}
+
+.terminal-project-outcome .terminal-comment {
+  display: block;
+  margin-bottom: 4px;
+}

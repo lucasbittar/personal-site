@@ -2,11 +2,12 @@ import React from "react";
 
 const About = () => {
   const skills = [
-    { category: "Frontend", items: ["JavaScript", "React", "TypeScript", "HTML", "CSS/SCSS", "UI/UX", "Accessibility"], level: 95 },
-    { category: "Backend", items: ["Node.js", "Go", "Postgres", "AWS"], level: 60 },
-    { category: "Mobile", items: ["React Native"], level: 70 },
-    { category: "Tools", items: ["VIM", "TMUX", "Git", "Chrome DevTools"], level: 85 },
-    { category: "Learning", items: ["Data Structures", "Algorithms", "System Design"], level: 45 },
+    { category: "Frontend", items: ["React", "TypeScript", "Next.js", "TanStack Query", "Tailwind CSS", "HTML", "CSS/SCSS", "Accessibility"], level: 95, label: "10+ yrs" },
+    { category: "Backend & data", items: ["Go", "PostgreSQL", "Node.js", "REST/OpenAPI", "Supabase", "Redis"], level: 55, label: "since 2026" },
+    { category: "Practices", items: ["Design docs & ERDs", "AI coding agents", "Code review", "Stakeholder demos"], level: 75, label: "daily" },
+    { category: "Delivery", items: ["GitHub Actions", "AWS", "Vercel", "Google Cloud", "Git"], level: 50, label: "daily use" },
+    { category: "Terminal", items: ["Ghostty", "tmux", "Neovim", "zsh", "fzf", "gh CLI", "Claude Code"], level: 90, label: "~/home" },
+    { category: "Learning", items: ["Go", "Data Structures", "Algorithms", "System Design"], level: 45, label: "in progress" },
   ];
 
   return (
@@ -46,7 +47,7 @@ const About = () => {
               </div>
               <div className="terminal-neofetch-row">
                 <span className="terminal-key">Shell</span>
-                <span className="terminal-value">frontend/react</span>
+                <span className="terminal-value">full-stack (react + go)</span>
               </div>
               <div className="terminal-neofetch-row">
                 <span className="terminal-key">Network</span>
@@ -54,7 +55,7 @@ const About = () => {
               </div>
               <div className="terminal-neofetch-row">
                 <span className="terminal-key">Clients</span>
-                <span className="terminal-value">Gartner, BVA, Zobrist, +more</span>
+                <span className="terminal-value">Index Risk, Gartner, Zobrist, +more</span>
               </div>
             </div>
           </div>
@@ -62,11 +63,13 @@ const About = () => {
           <div className="terminal-about-text">
             <div className="terminal-comment"># Professional Summary</div>
             <p className="terminal-paragraph">
-              With 15 years of experience, I've built impactful web solutions for
-              global companies. For the past decade, I've worked as a Toptal talent,
-              collaborating with leaders like Gartner, BVA, and Zobrist. I've
-              architected scalable applications for data-driven platforms and
-              e-commerce giants including The North Face and VANS.
+              15 years building for the web, the last decade as a Toptal engineer
+              (top 3%) for clients like Gartner and Zobrist (The North Face, VANS,
+              Timberland). In 2026 I moved from frontend to full-stack at Index
+              Risk, a specialty insurance MGU: I joined as the only frontend
+              engineer and now own features end to end, from the design doc and
+              ERDs to the React UI and the Go and PostgreSQL API, built with AI
+              coding agents and reviewed by me.
             </p>
           </div>
 
@@ -96,7 +99,7 @@ const About = () => {
                 <div key={index} className="terminal-skill-item">
                   <div className="terminal-skill-header">
                     <span className="terminal-skill-name">{skill.category}</span>
-                    <span className="terminal-skill-percent">{skill.level}%</span>
+                    <span className="terminal-skill-percent">{skill.label}</span>
                   </div>
                   <div className="terminal-skill-bar">
                     <div
