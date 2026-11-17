@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import content from "../data/content.json";
+import GA4 from "react-ga4";
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
-  const { hero } = content;
+  const { hero, social } = content;
+  const headline = hero?.headline;
+  const openTo = hero?.openTo || [];
+  const trackCta = (label) =>
+    GA4.event({ category: "Hero CTA", action: "Click", label });
   const words = hero?.rotatingWords || ["software engineer"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -24,7 +29,7 @@ const Header = () => {
         clearInterval(bootInterval);
         setShowContent(true);
       }
-    }, 400);
+    }, 250);
 
     return () => clearInterval(bootInterval);
   }, []);
@@ -156,6 +161,15 @@ const Header = () => {
                   </span>
                 </div>
 
+                {/* Headline */}
+                <div className="terminal-role">
+                  <span className="terminal-prompt">$</span>
+                  <span className="terminal-command">cat headline.txt</span>
+                </div>
+                <div className="terminal-output terminal-headline">
+                  {headline}
+                </div>
+
                 {/* Stats section */}
                 <div className="terminal-stats">
                   <div className="terminal-stat">
@@ -165,7 +179,7 @@ const Header = () => {
                   <div className="terminal-stat-grid">
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">location</span>
-                      <span className="terminal-stat-value">Brazil</span>
+                      <span className="terminal-stat-value">Campinas, Brazil (remote)</span>
                     </div>
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">experience</span>
@@ -173,13 +187,58 @@ const Header = () => {
                     </div>
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">focus</span>
-                      <span className="terminal-stat-value">Software Engineering</span>
+                      <span className="terminal-stat-value">Full-stack: React, TypeScript, Go</span>
                     </div>
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">status</span>
-                      <span className="terminal-stat-value terminal-online">● online</span>
+                      <span className="terminal-stat-value terminal-online">● open to roles</span>
                     </div>
                   </div>
+                </div>
+
+                {/* Hire-me actions */}
+                <div className="terminal-stat">
+                  <span className="terminal-prompt">$</span>
+                  <span className="terminal-command">cat open-to.txt</span>
+                </div>
+                <div className="terminal-output terminal-open-to">
+                  {openTo.join(" · ")}
+                </div>
+                <div className="terminal-cta">
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="terminal-project-link terminal-cta-primary"
+                    onClick={() => trackCta("resume")}
+                  >
+                    <span className="terminal-prompt">$</span>
+                    <span className="terminal-command">open</span>
+                    <span className="terminal-flag">--resume</span>
+                    <span className="terminal-arrow">→</span>
+                  </a>
+                  <a
+                    href={`mailto:${social.email}`}
+                    className="terminal-project-link"
+                    onClick={() => trackCta("email")}
+                  >
+                    <span className="terminal-prompt">$</span>
+                    <span className="terminal-command">mail</span>
+                    <span className="terminal-flag">--to lucas</span>
+                    <span className="terminal-arrow">→</span>
+                  </a>
+                  <a
+                    href={social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="terminal-project-link"
+                    onClick={() => trackCta("linkedin")}
+                  >
+                    <span className="terminal-prompt">$</span>
+                    <span className="terminal-command">open</span>
+                    <span className="terminal-flag">--linkedin</span>
+                    <span className="terminal-arrow">→</span>
+                  </a>
                 </div>
 
                 {/* Scroll prompt */}

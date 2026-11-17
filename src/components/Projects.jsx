@@ -8,6 +8,8 @@ const projects = [
     title: "PV7 · Pabllo Vittar",
     description:
       "The official hotsite and fan-engagement portal for global pop star Pabllo Vittar's PV7 album rollout. It pairs a gated lead-capture flow with a fully anonymized 1-to-5 star track-ranking system, plus an admin-flippable, multi-phase campaign — countdown, album reveal, pre-save, and single release — that goes live with zero redeploys. Engineered to stay fast under launch-day traffic surges.",
+    outcome:
+      "~20,000 visitors on launch day, zero incidents. 5 campaign phases switched live from the admin panel, no redeploys.",
     links: [
       { name: "demo", url: "https://pabllovittar.digital" },
     ],
@@ -20,10 +22,13 @@ const projects = [
     title: "Carta de Adeus",
     description:
       "A fan tribute to Brazilian rock band Fresno's new album. Write and share farewell letters with people around the world. Explore heartfelt messages on a global map and be part of a collective expression of goodbyes.",
+    outcome:
+      "~22,000 visitors, zero incidents. Letters API split into 3 endpoints behind the CDN; locations stored at ~1 km for LGPD privacy.",
     links: [
+      { name: "source", url: "https://github.com/lucasbittar/cartadeadeus" },
       { name: "demo", url: "https://www.cartadeadeus.cc/" },
     ],
-    tags: ["Full-stack", "React", "Next.js", "TypeScript", "Supabase", "Redis", "Fresno"],
+    tags: ["Full-stack", "React", "Next.js", "TypeScript", "Supabase", "Upstash Redis", "React Three Fiber"],
     status: "active",
   },
   {
@@ -36,7 +41,7 @@ const projects = [
       { name: "source", url: "https://github.com/lucasbittar/weatherapp" },
       { name: "demo", url: "https://weatherapp-kohl-tau.vercel.app/" },
     ],
-    tags: ["Full-stack", "React", "TypeScript", "OpenWeather API", "Geolocation", "Gemini AI"],
+    tags: ["Full-stack", "React", "TypeScript", "OpenWeather API", "Geolocation", "Gemini API"],
     status: "active",
   },
   {
@@ -45,11 +50,13 @@ const projects = [
     title: "MyScrobble.fm",
     description:
       "MyScrobble transforms your Spotify listening data into meaningful insights. Connect your Spotify account and discover patterns in your music taste, get AI-powered recommendations, find concerts near you, and create shareable cards of your top artists and tracks.",
+    outcome:
+      "Runs within Spotify's 25-user developer cap with a waitlist and activity-based slot manager.",
     links: [
       { name: "source", url: "https://github.com/lucasbittar/myscrobble" },
       { name: "demo", url: "https://myscrobble.fm" },
     ],
-    tags: ["Full-stack", "React", "Next.js", "TypeScript", "Spotify API", "Gemini AI", "Data Visualization"],
+    tags: ["Full-stack", "React", "Next.js", "TypeScript", "Spotify API", "Gemini API", "Data Visualization"],
     status: "active",
   },
 ];
@@ -99,6 +106,13 @@ const Projects = () => {
                   <div className="terminal-comment"># README.md</div>
                   <p>{project.description}</p>
                 </div>
+
+                {project.outcome && (
+                  <div className="terminal-project-outcome">
+                    <span className="terminal-comment"># OUTCOME</span>
+                    <span>{project.outcome}</span>
+                  </div>
+                )}
 
                 {project.tags && project.tags.length > 0 && (
                   <div className="terminal-project-tags">
