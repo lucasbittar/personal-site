@@ -6,6 +6,7 @@ const About = () => {
     { category: "Backend & data", items: ["Go", "PostgreSQL", "Node.js", "REST/OpenAPI", "Supabase", "Redis"], level: 55, label: "since 2026" },
     { category: "Practices", items: ["Design docs & ERDs", "AI coding agents", "Code review", "Stakeholder demos"], level: 75, label: "daily" },
     { category: "Delivery", items: ["GitHub Actions", "AWS", "Vercel", "Google Cloud", "Git"], level: 50, label: "daily use" },
+    { category: "Terminal", items: ["Ghostty", "tmux", "Neovim", "zsh + Starship", "fzf", "ripgrep", "git-delta", "gh CLI", "Claude Code", "Hammerspoon"], level: 90, label: "~/home" },
     { category: "Learning", items: ["Go", "Data Structures", "Algorithms", "System Design"], level: 45, label: "in progress" },
   ];
 
