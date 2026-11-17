@@ -2,7 +2,12 @@
   "intro": "Hey, I'm Lucas. I've been building things on the web for 15 years, currently working as a full-stack software engineer at Index Risk. But there's more to me than code - I write about technology and life, geek out about music on my YouTube channel, and I'm always reading something interesting. Welcome to my corner of the internet.",
   "hero": {
     "headline": "Full-stack software engineer: React, TypeScript, Go and PostgreSQL. 10+ years shipping production web apps, Toptal top 3%.",
-    "openTo": ["Full-stack Engineer", "Senior Frontend Engineer", "Product Engineer", "Remote"],
+    "openTo": [
+      "Full-stack Engineer",
+      "Senior Frontend Engineer",
+      "Product Engineer",
+      "Remote"
+    ],
     "rotatingWords": [
       "software engineer",
       "content creator",
@@ -14,14 +19,20 @@
   },
   "now": {
     "workingOn": [
-      "Shipping the official hotsite for global pop star Pabllo Vittar's PV7 album rollout — a high-traffic, multi-phase fan-engagement portal (gated voting, countdown, album reveal, single drop) that flips new phases live with zero redeploys. Wild to build something this many fans will see!",
-      "Building and maintaining the live underwriting platform at Index Risk, a specialty MGU. Brokers submit a risk, we quote it, bind it, and keep the book visible.",
+      "Shipped the official hotsite for global pop star Pabllo Vittar's PV7 album rollout: about 20,000 fans on launch day, with new campaign phases flipped live from the admin panel and zero redeploys. Wild to build something this many fans saw!",
+      "Owning features end to end on Index Risk's underwriting platform, a specialty MGU: design doc, React UI and Go API. Currently building cross-sell.",
       "Revamping MyScrobble.fm with new features I've always dreamed of. Really excited to ship it soon!",
       "Maintaining Carta de Adeus, a fan tribute to Fresno's new album. As a fan of their music myself, it's awesome to build something that might reach lots of people!"
     ],
     "reading": [
-      { "title": "A Máquina do Caos", "author": "Max Fisher" },
-      { "title": "The Creative Act: A Way of Being", "author": "Rick Rubin" }
+      {
+        "title": "A Máquina do Caos",
+        "author": "Max Fisher"
+      },
+      {
+        "title": "The Creative Act: A Way of Being",
+        "author": "Rick Rubin"
+      }
     ],
     "listening": "Gorija has been playing on repeat lately. Can't get enough of their sound!",
     "thinkingAbout": "I've been thinking about our role as engineers in the Era of AI. How do we adapt and thrive as AI tools become more integrated into our workflows?"
@@ -100,49 +111,101 @@
       "id": "current",
       "title": "Software Engineer III (Full-stack)",
       "company": "Index Risk",
-      "period": "Jan 2026 – Present",
-      "description": "Developed from the ground up and maintaining a live underwriting platform for Index Risk, a specialty MGU. Brokers submit a risk, we quote it, bind it, and keep the book visible. I work across the stack: React/TypeScript on the product, Go/Postgres/AWS underneath.",
-      "tech": ["React", "TypeScript", "Go", "Postgres", "AWS", "Vite", "Tailwind CSS", "Shadcn", "TanStack Query", "Zod"]
+      "period": "May 2026 – Present",
+      "description": "Own features end to end (tasks, pipeline overview, bordereaux reporting and now cross-sell) on Index Risk's underwriting platform: technical design documents with ERDs, React and TypeScript UI, Go and PostgreSQL APIs built with AI coding agents and reviewed by me, and stakeholder demos.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Go",
+        "PostgreSQL",
+        "TanStack Query",
+        "Zod",
+        "Server-Sent Events",
+        "OpenAPI"
+      ]
+    },
+    {
+      "id": "idx-fe",
+      "title": "Senior Front-End Developer",
+      "company": "Index Risk",
+      "period": "Jan – May 2026",
+      "description": "Built the underwriting platform's React and TypeScript app from the Figma designs as the only frontend engineer, alongside one backend engineer.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "TanStack Query",
+        "Zod"
+      ]
     },
     {
       "id": "guardian-service",
       "title": "Senior Front-End Developer",
       "company": "Guardian Service",
       "period": "Jul – Aug 2025",
-      "description": "Rebuilt their multi-step customer intake form from scratch, dramatically improving speed and user experience while integrating with their CRM, Calendly, and cloud infrastructure.",
-      "tech": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Google Cloud", "Webhooks"]
+      "description": "Rebuilt the multi-step customer intake form in React and Next.js, with file uploads to Google Cloud Storage through signed URLs, Calendly, Canopy and CRM webhook integrations, and partial capture of abandoned forms.",
+      "tech": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Google Cloud",
+        "Webhooks"
+      ]
     },
     {
       "id": "gartner",
       "title": "Senior Front-End Developer",
       "company": "Gartner",
       "period": "Dec 2023 – Mar 2025",
-      "description": "Enhanced an AI-powered chat tool with conversation management features and performance optimizations, seamlessly integrating with Gartner's data-driven research platform.",
-      "tech": ["React", "JavaScript", "AI Integration"]
+      "description": "Added conversation pinning, layout improvements and refactors to an AI chat tool, and optimized frontend performance on Gartner's research platform.",
+      "tech": [
+        "React",
+        "JavaScript",
+        "AI chat"
+      ]
     },
     {
       "id": "sensentia",
       "title": "Senior Front-End Developer",
       "company": "Sensentia",
       "period": "Nov 2023 – Sep 2024",
-      "description": "Built an AI-driven healthcare dashboard that tailors treatment plans to individual patient needs, with a strong focus on accessibility and responsive design.",
-      "tech": ["React", "TypeScript", "Healthcare AI", "Accessibility"]
+      "description": "Built an AI-driven healthcare dashboard that tailors treatment plans to individual patients, with a focus on accessibility, and led hiring interviews and mentored the developer we hired.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Accessibility",
+        "Contentful"
+      ]
     },
     {
       "id": "zobrist",
       "title": "Senior Front-End Developer",
       "company": "Zobrist",
       "period": "Aug 2020 – Aug 2023",
-      "description": "Architected catalog and product pages for major retail brands including The North Face, VANS, and Timberland, driving user engagement for millions of shoppers.",
-      "tech": ["JavaScript", "jQuery", "E-commerce", "Agile"]
+      "description": "Built catalog and product pages for The North Face, VANS and Timberland e-commerce sites in an agile team.",
+      "tech": [
+        "JavaScript",
+        "jQuery",
+        "E-commerce",
+        "Agile"
+      ]
     },
     {
       "id": "bva",
       "title": "Senior Front-End Developer",
       "company": "BVA",
       "period": "Feb – Dec 2019",
-      "description": "Translated design mockups into strategic digital solutions while mentoring mid-level developers and establishing code review standards across the team.",
-      "tech": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify"]
+      "description": "Built Shopify storefronts from design mockups and set code review standards while mentoring mid-level and associate developers.",
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Liquid",
+        "Shopify"
+      ]
     }
   ],
   "social": {

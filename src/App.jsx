@@ -54,10 +54,10 @@ const App = () => {
         <Now />
         <About />
         <Experiences />
+        <Projects />
         <Writing />
         <Listening />
         <Reading />
-        <Projects />
         <Social />
       </div>
       <Analytics />
