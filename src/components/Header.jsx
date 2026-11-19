@@ -183,7 +183,7 @@ const Header = () => {
                     </div>
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">experience</span>
-                      <span className="terminal-stat-value">15+ years</span>
+                      <span className="terminal-stat-value">10+ years</span>
                     </div>
                     <div className="terminal-stat-item">
                       <span className="terminal-stat-key">focus</span>
