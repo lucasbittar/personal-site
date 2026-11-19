@@ -43,7 +43,7 @@ const About = () => {
               </div>
               <div className="terminal-neofetch-row">
                 <span className="terminal-key">Uptime</span>
-                <span className="terminal-value">15 years</span>
+                <span className="terminal-value">10+ years</span>
               </div>
               <div className="terminal-neofetch-row">
                 <span className="terminal-key">Shell</span>
@@ -63,7 +63,7 @@ const About = () => {
           <div className="terminal-about-text">
             <div className="terminal-comment"># Professional Summary</div>
             <p className="terminal-paragraph">
-              15 years building for the web, the last decade as a Toptal engineer
+              10+ years building for the web, most of them as a Toptal engineer
               (top 3%) for clients like Gartner and Zobrist (The North Face, VANS,
               Timberland). In 2026 I moved from frontend to full-stack at Index
               Risk, a specialty insurance MGU: I joined as the only frontend
