@@ -37,11 +37,13 @@ const projects = [
     title: "Weather Terminal v3.0",
     description:
       "A retro-inspired, command-line interface (CLI) weather application built with React. It combines a nostalgic 80s terminal aesthetic with real-time data fetching to provide a distraction-free weather forecasting experience.",
+    outcome:
+      "Vitest suite and a GitHub Actions pipeline that gates every preview and production deploy on typecheck, tests and build.",
     links: [
       { name: "source", url: "https://github.com/lucasbittar/weatherapp" },
       { name: "demo", url: "https://weatherapp-kohl-tau.vercel.app/" },
     ],
-    tags: ["Full-stack", "React", "TypeScript", "OpenWeather API", "Geolocation", "Gemini API"],
+    tags: ["React", "TypeScript", "Gemini API", "Vitest", "GitHub Actions"],
     status: "active",
   },
   {
