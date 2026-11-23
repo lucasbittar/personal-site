@@ -160,7 +160,7 @@
       "title": "Senior Front-End Developer",
       "company": "Gartner",
       "period": "Dec 2023 – Mar 2025",
-      "description": "Added conversation pinning, layout improvements and refactors to an AI chat tool, and optimized frontend performance on Gartner's research platform.",
+      "description": "Built the responsive version of an AI chat tool from scratch (it was desktop-only), added conversation pinning, layout improvements and refactors, and optimized frontend performance on Gartner's research platform.",
       "tech": [
         "React",
         "JavaScript",
@@ -172,7 +172,7 @@
       "title": "Senior Front-End Developer",
       "company": "Sensentia",
       "period": "Nov 2023 – Sep 2024",
-      "description": "Built an AI-driven healthcare dashboard that tailors treatment plans to individual patients, with a focus on accessibility, and led hiring interviews and mentored the developer we hired.",
+      "description": "Built an AI-driven healthcare dashboard that tailors treatment plans to individual patients, with a focus on accessibility, and interviewed developer candidates and mentored the developer we hired.",
       "tech": [
         "React",
         "TypeScript",
